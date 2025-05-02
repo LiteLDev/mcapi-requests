@@ -13,5 +13,15 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - uses: stefanbuck/github-issue-parser@v3
+        id: issue-parser
+        with:
+          template-path: .github/ISSUE_TEMPLATE/mcapi_request.yml
+
       - run: |
-          echo "${{ github.event.issue.body }}"
+          echo "${{ steps.issue-parser.outputs.issueparser_symbols }}" >> symbols.txt
+
+      - run: |
+          python tidy_symbols.py
+
+      - uses: stefanzweifel/git-auto-commit-action@v5
