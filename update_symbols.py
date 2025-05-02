@@ -1,7 +1,7 @@
 """Tidy symbols."""
 
 import json
-from typing import Iterable, List
+from typing import Dict, Iterable, List
 
 ISSUE_PARSER_RESULT_FILE_PATH = "issue-parser-result.json"
 SYMBOLS_FILE_PATH = "symbols.txt"
@@ -30,9 +30,9 @@ def main() -> None:
     """Main function."""
 
     with open(ISSUE_PARSER_RESULT_FILE_PATH, "r", encoding="utf-8") as f:
-        issue_parser_result = json.load(f)
+        issue_parser_result: Dict[str, str] = json.load(f)
 
-    new_symbols_text = str(issue_parser_result.symbols)
+    new_symbols_text = issue_parser_result.get("symbols", "")
 
     new_symbols = new_symbols_text.split()
 
