@@ -1,1 +1,13 @@
-
+?@Actor@@QEAAXAEAV1@@Z
+?@BucketItem@@QEBA?AVInteractionResult@@AEAVItemStack@@AEAVActor@@VBlockPos@@EAEBVVec3@@@Z
+?@ChestBlockActor@@QEBA_NAEAVBlockSource@@@Z
+?@Container@@QEAA_NAEBVItemStack@@@Z
+?@EnderCrystal@@QEAA_NAEBVActorDamageSource@@M_N1@Z
+?@ItemFrameBlock@@QEBA_NPEAVPlayer@@AEBVBlockPos@@@Z
+?@LevelContainerModel@@QEAAXHAEBVItemStack@@0@Z
+?@Mob@@QEAA_NAEBVActorDamageSource@@M_N1@Z
+?@MovingBlockActor@@QEAA?AV?@VBlockActorDataPacket@@U?@VBlockActorDataPacket@@@std@@@std@@AEAVBlockSource@@@Z
+?@NoteBlock@@QEBA_NPEAVPlayer@@AEBVBlockPos@@@Z
+?@Player@@QEAAXH@Z
+?@RakPeer@RakNet@@QEAAXPEBDI@Z
+?@ServerLevel@@QEAAXXZ
