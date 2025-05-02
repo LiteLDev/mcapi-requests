@@ -1,19 +1,20 @@
-name: MCAPI Impl Request
-description: "Requests for MCAPI implementation"
+name: MCAPI Request
+description: "A request for some MCAPIs"
+title: Request MCAPIs for <your-mod-name>
 body:
   - type: textarea
     id: symbols
     attributes:
       label: Symbols
       description: The symbols provided by the error message during linking. One symbol per line.
-      placeholder: "e.g. ?$exmapleMethod@ExampleClass@@QEAAXH@Z\n?$anotherMethod@AnotherClass@@QEAA_NXZ"
+      placeholder: "e.g.\n?$exmapleMethod@ExampleClass@@QEAAXH@Z\n?$anotherMethod@AnotherClass@@QEAA_NXZ"
     validations:
       required: true
 
   - type: textarea
     attributes:
       label: Justification
-      description: Explain what mods are you working on and why you need these APIs.
+      description: Explain what mods are you working on and why you need these MCAPIs.
       placeholder: |
         e.g. I'm working on a mod to give players starter pack on their first join. I need to access their UUID to...
     validations:
