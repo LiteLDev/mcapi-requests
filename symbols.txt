@@ -1,3 +1,9 @@
+?$SetOfflinePingResponse@RakPeer@RakNet@@QEAAXPEBDI@Z
+?$_canOpenThis@ChestBlockActor@@QEBA_NAEAVBlockSource@@@Z
+?$_getUpdatePacket@MovingBlockActor@@QEAA?AV?$unique_ptr@VBlockActorDataPacket@@U?$default_delete@VBlockActorDataPacket@@@std@@@std@@AEAVBlockSource@@@Z
+?$_hurt@EnderCrystal@@QEAA_NAEBVActorDamageSource@@M_N1@Z
+?$_hurt@Mob@@QEAA_NAEBVActorDamageSource@@M_N1@Z
+?$_onItemChanged@LevelContainerModel@@QEAAXHAEBVItemStack@@0@Z
 ?$_subTick@ServerLevel@@QEAAXXZ
 ?$_useOn@BucketItem@@QEBA?AVInteractionResult@@AEAVItemStack@@AEAVActor@@VBlockPos@@EAEBVVec3@@@Z
 ?$addExperience@Player@@QEAAXH@Z
