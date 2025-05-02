@@ -19,10 +19,6 @@ jobs:
           template-path: .github/ISSUE_TEMPLATE/mcapi_request.yml
 
       - run: |
-          echo "${{ steps.issue-parser.outputs.issueparser_symbols }}"
-          echo "${{ steps.issue-parser.outputs.issueparser_symbols }}" >> symbols.txt
-
-      - run: |
-          python tidy_symbols.py
+          python update_symbols.py
 
       - uses: stefanzweifel/git-auto-commit-action@v5
