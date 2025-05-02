@@ -16,9 +16,14 @@ jobs:
       - uses: stefanbuck/github-issue-parser@v3
         id: issue-parser
         with:
-          template-path: .github/ISSUE_TEMPLATE/mcapi_request.yml
+          template-path: .github/ISSUE_TEMPLATE/mcapi-request.yml
 
       - run: |
-          python update_symbols.py
+          echo $SYMBOLS >> symbols.txt
+        env:
+          SYMBOLS: ${{ steps.issue-parser.outputs.issueparser_symbols }}
+
+      - run: |
+          python tidy_symbols.py
 
       - uses: stefanzweifel/git-auto-commit-action@v5
