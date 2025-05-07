@@ -88,6 +88,7 @@
 ?$receivePacket@BatchedNetworkPeer@@QEAA?AW4DataStatus@NetworkPeer@@AEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$shared_ptr@V?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@@5@@Z
 ?$releaseSnapshot@DBStorage@@QEAAXXZ
 ?$removeItem@Container@@QEAAXHH@Z
+?$removeSimulatedPlayer@MinecraftGameTestHelper@@QEAAXAEAVSimulatedPlayer@@@Z
 ?$requestPlayerChangeDimension@Level@@QEAAXAEAVPlayer@@$$QEAVChangeDimensionRequest@@@Z
 ?$respawn@Player@@QEAAXXZ
 ?$save@MovingBlockActor@@QEBA_NAEAVCompoundTag@@AEBVSaveContext@@@Z
@@ -263,6 +264,7 @@
 ??0ScoreboardId@@QEAA@AEBU0@@Z
 ??0ScoreboardId@@QEAA@XZ
 ??0ScoreboardId@@QEAA@_J@Z
+??0ScriptCommandOrigin@@QEAA@AEAVServerLevel@@PEAVDimension@@V?$function@$$A6AXH$$QEAV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z@std@@V?$optional@W4CommandPermissionLevel@@@4@@Z
 ??0SemVersion@@QEAA@AEBV0@@Z
 ??0SemVersion@@QEAA@GGGAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z
 ??0SemVersion@@QEAA@XZ
