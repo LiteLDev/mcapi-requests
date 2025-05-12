@@ -1664,3 +1664,5 @@
 ?writeVarInt64@BinaryStream@@UEAAX_JPEBD1@Z
 ?writeVarInt@BinaryStream@@QEAAXHPEBD0@Z
 ?writeVarInt@BinaryStream@@UEAAXHPEBD0@Z
+__imp_?$handle@ItemUseOnActorInventoryTransaction@@QEBA?AW4InventoryTransactionError@@AEAVPlayer@@_N@Z
+__imp_?WaterBucket@VanillaItemNames@@YAAEBVHashedString@@XZ
