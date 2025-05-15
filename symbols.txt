@@ -1664,7 +1664,6 @@
 ?writeVarInt64@BinaryStream@@UEAAX_JPEBD1@Z
 ?writeVarInt@BinaryStream@@QEAAXHPEBD0@Z
 ?writeVarInt@BinaryStream@@UEAAXHPEBD0@Z
-__imp_?$handle@ItemUseOnActorInventoryTransaction@@QEBA?AW4InventoryTransactionError@@AEAVPlayer@@_N@Z
-__imp_?WaterBucket@VanillaItemNames@@YAAEBVHashedString@@XZ
-__imp_?getByName@Attribute@@SAAEAV1@AEBVHashedString@@@Z
-setPlayerMaxHealth@Player@entity@immortal_cultivation@@SAXPEAV1@M@Z
+?$handle@ItemUseOnActorInventoryTransaction@@QEBA?AW4InventoryTransactionError@@AEAVPlayer@@_N@Z
+?WaterBucket@VanillaItemNames@@YAAEBVHashedString@@XZ
+?getByName@Attribute@@SAAEAV1@AEBVHashedString@@@Z
