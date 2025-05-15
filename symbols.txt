@@ -55,6 +55,7 @@
 ?$getDeathMessage@ActorDamageByBlockSource@@QEBA?AU?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@2@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@PEAVActor@@@Z
 ?$getDeathMessage@ActorDamageByChildActorSource@@QEBA?AU?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@2@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@PEAVActor@@@Z
 ?$getDeathMessage@ActorDamageSource@@QEBA?AU?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@2@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@PEAVActor@@@Z
+?$getLevelData@ExternalFileLevelStorageSource@@QEBA?AVResult@Core@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAVLevelData@@@Z
 ?$getPlayer@Level@@QEBAPEAVPlayer@@AEBVUUID@mce@@@Z
 ?$getXuid@Player@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?$handle@ComplexInventoryTransaction@@QEBA?AW4InventoryTransactionError@@AEAVPlayer@@_N@Z
@@ -104,6 +105,7 @@
 ?$sendToClients@LoopbackPacketSender@@QEAAXAEBV?$vector@UNetworkIdentifierWithSubId@@V?$allocator@UNetworkIdentifierWithSubId@@@std@@@std@@AEBVPacket@@@Z
 ?$setItem@DispenserBlockActor@@QEAAXHAEBVItemStack@@@Z
 ?$setItem@HopperBlockActor@@QEAAXHAEBVItemStack@@@Z
+?$setOnChunkLoadedCalled@LevelChunkEventManagerProxy@@QEAA_NAEAVLevelChunk@@@Z
 ?$setPlayerGameType@ServerPlayer@@QEAAXW4GameType@@@Z
 ?$shouldTriggerEntityInside@BasePressurePlateBlock@@QEBA_NAEAVBlockSource@@AEBVBlockPos@@AEAVActor@@@Z
 ?$spawnItem@BedrockSpawner@@QEAAPEAVItemActor@@AEAVBlockSource@@AEBVItemStack@@PEAVActor@@AEBVVec3@@H@Z
@@ -380,6 +382,7 @@
 ??1RedactableString@Safety@Bedrock@@QEAA@XZ
 ??1RemoveActorPacket@@UEAA@XZ
 ??1ResourceDrops@@QEAA@XZ
+??1Result@Core@@QEAA@XZ
 ??1ScorePacketInfo@@QEAA@XZ
 ??1SemVersion@@QEAA@XZ
 ??1SerializedAbilitiesData@@QEAA@XZ
@@ -412,6 +415,7 @@
 ??1VarIntDataOutput@@UEAA@XZ
 ??1WorldGenerator@@UEAA@XZ
 ??4ChunkGeneratorStructureState@worldgen@br@@QEAAAEAU012@$$QEAU012@@Z
+??4EducationEditionOfferValue@@QEAAAEAV0@W4EducationEditionOffer@@@Z
 ??4HitResult@@QEAAAEAV0@$$QEAV0@@Z
 ??4ItemStack@@QEAAAEAV0@AEBV0@@Z
 ??4ItemStackBase@@QEAAAEAV0@AEBV0@@Z
@@ -447,7 +451,9 @@
 ?Compass@VanillaItemNames@@YAAEBVHashedString@@XZ
 ?CurrentVersion@CommandVersion@@SAAEBHXZ
 ?DimensionMap@VanillaDimensions@@SAAEBV?$BidirectionalUnorderedMap@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$AutomaticID@VDimension@@H@@@@XZ
+?Direction@VanillaStates@@YAAEBV?$BlockStateVariant@H@@XZ
 ?Dirt@VanillaBlockTypeIds@@YAAEBVHashedString@@XZ
+?DoorHingeBit@VanillaStates@@YAAEBV?$BlockStateVariant@_N@@XZ
 ?DragonEgg@VanillaBlockTypeIds@@YAAEBVHashedString@@XZ
 ?EMPTY@UUID@mce@@SAAEAV12@XZ
 ?EMPTY_ITEM@ItemStack@@SAAEBV1@XZ
@@ -468,6 +474,9 @@
 ?LodestoneCompass@VanillaItemNames@@YAAEBVHashedString@@XZ
 ?MAX@Brightness@@SAAEBU1@XZ
 ?MCRESULT_CommandsDisabled@@YAAEBUMCRESULT@@XZ
+?MCRESULT_ExecutionFail@@YAAEBUMCRESULT@@XZ
+?MCRESULT_FailedToParseCommand@@YAAEBUMCRESULT@@XZ
+?MCRESULT_Success@@YAAEBUMCRESULT@@XZ
 ?MINECOIN_GOLD@Color@mce@@SAAEBV12@XZ
 ?MOVEMENT_SPEED@SharedAttributes@@SAAEBVAttribute@@XZ
 ?Nether@VanillaDimensions@@SAAEBV?$AutomaticID@VDimension@@H@@XZ
@@ -560,6 +569,7 @@
 ?_updateState@ObserverBlock@@QEBAXAEAVBlockSource@@AEBVBlockPos@@AEAVPulseCapacitor@@_N@Z
 ?_upgradeLevelChunkLegacy@VanillaLevelChunkUpgrade@@YAXAEAVLevelChunk@@AEAVBlockSource@@@Z
 ?_upgradeLevelChunkViaMetaData@VanillaLevelChunkUpgrade@@YAXAEAVLevelChunk@@0AEAVBlockSource@@@Z
+?_uploadResourcePackFolder@ResourcePackFileUploadManager@@QEAA?AV?$shared_ptr@V?$IAsyncResult@X@Threading@Bedrock@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@AEBVResourceLocation@@AEBV?$PathBuffer@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Core@@AEBVValue@Json@@@Z
 ?_useInventory@CauldronBlock@@QEBAXAEAVPlayer@@AEAVItemStack@@1H@Z
 ?_writeArray@BinaryStream@@UEAAX$$QEAV?$function@$$A6AXAEAVBinaryStream@@@Z@std@@0PEBD1@Z
 ?achievementsWillBeDisabledOnLoad@LevelData@@QEBA_NXZ
@@ -1012,6 +1022,7 @@
 ?getRequestId@ActorCommandOrigin@@UEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?getRequestId@PlayerCommandOrigin@@UEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?getRequestId@ServerCommandOrigin@@UEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+?getRequiredExperimentsForMetadata@CreatorMetadataUtils@@YA?AV?$initializer_list@W4AllExperiments@@@std@@XZ
 ?getResourceDrops@BlockLegacy@@QEBA?AUResourceDrops@@AEBVBlock@@AEAVRandomize@@AEBUResourceDropsContext@@@Z
 ?getRotation@Actor@@QEBAAEBVVec2@@XZ
 ?getRotation@ActorCommandOrigin@@UEBA?AV?$optional@VVec2@@@std@@XZ
@@ -1237,6 +1248,7 @@
 ?lookupCause@ActorDamageSource@@SA?AW4ActorDamageCause@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ?mMayTake@EnderMan@@SAAEAV?$set@PEBVBlock@@U?$less@PEBVBlock@@@std@@V?$allocator@PEBVBlock@@@3@@std@@XZ
 ?mServer@StopCommand@@SAAEAPEAVDedicatedServer@@XZ
+?mThreadLocalRandom@Random@@SAAEAV1@XZ
 ?matchesItem@ItemStackBase@@QEBA_NAEBV1@@Z
 ?mayRespawnViaBed@Dimension@@UEBA_NXZ
 ?modifyPlayerScore@Scoreboard@@QEAAHAEA_NAEBUScoreboardId@@AEAVObjective@@HW4PlayerScoreSetFunction@@@Z
