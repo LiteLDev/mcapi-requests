@@ -5,24 +5,21 @@ from typing import Dict, Iterable, List
 
 ISSUE_PARSER_RESULT_FILE_PATH = "issue-parser-result.json"
 SYMBOLS_FILE_PATH = "symbols.txt"
+FILTERED_SYMBOLS = {"```", "```text"}
 
 
 def tidy_items(items: Iterable[str]) -> List[str]:
     """Tidies a collection of items.
 
     Args:
-        lines: Collection of items to tidy.
+        items: Collection of items to tidy.
 
     Returns:
         List of tidied items.
     """
-
     items = [item.strip() for item in items]
-
-    items = [item for item in items if item]
-
+    items = [item for item in items if item and item not in FILTERED_SYMBOLS]
     items = sorted(set(items))
-
     return items
 
 
