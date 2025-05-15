@@ -6,6 +6,7 @@ from typing import Dict, Iterable, List
 ISSUE_PARSER_RESULT_FILE_PATH = "issue-parser-result.json"
 SYMBOLS_FILE_PATH = "symbols.txt"
 FILTERED_SYMBOLS = {"```", "```text"}
+IMPORT_PREFIX = "__imp_"
 
 
 def tidy_items(items: Iterable[str]) -> List[str]:
@@ -17,10 +18,19 @@ def tidy_items(items: Iterable[str]) -> List[str]:
     Returns:
         List of tidied items.
     """
-    items = [item.strip() for item in items]
-    items = [item for item in items if item and item not in FILTERED_SYMBOLS]
-    items = sorted(set(items))
-    return items
+    cleaned_items = []
+    for item in items:
+        item = item.strip()
+        if not item or item in FILTERED_SYMBOLS:
+            continue
+        
+        # Remove __imp_ prefix if present
+        if item.startswith(IMPORT_PREFIX):
+            item = item[len(IMPORT_PREFIX):]
+        
+        cleaned_items.append(item)
+    
+    return sorted(set(cleaned_items))
 
 
 def main() -> None:
