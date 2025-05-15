@@ -234,6 +234,7 @@
 ??0ItemStack@@QEAA@AEBVRecipeIngredient@@@Z
 ??0ItemStack@@QEAA@V?$basic_string_view@DU?$char_traits@D@std@@@std@@HHPEBVCompoundTag@@@Z
 ??0ItemStack@@QEAA@XZ
+??0JigsawPlacement@@QEAA@_K0AEAV?$vector@V?$unique_ptr@VStructurePiece@@U?$default_delete@VStructurePiece@@@std@@@std@@V?$allocator@V?$unique_ptr@VStructurePiece@@U?$default_delete@VStructurePiece@@@std@@@std@@@2@@std@@V?$function@$$A6A?AV?$unique_ptr@VPoolElementStructurePiece@@U?$default_delete@VPoolElementStructurePiece@@@std@@@std@@AEBVStructurePoolElement@@AEBVBlockPos@@AEBW4Rotation@@HAEAUJigsawJunction@@AEBVBoundingBox@@1@Z@2@AEAVRandom@@AEBVJigsawStructureRegistry@@AEAVDimension@@@Z
 ??0LayeredAbilities@@QEAA@AEBV0@@Z
 ??0LevelEventPacket@@QEAA@W4LevelEvent@@AEBVVec3@@H@Z
 ??0MerchantRecipe@@QEAA@$$QEAV0@@Z
@@ -289,8 +290,11 @@
 ??0SpawnSettings@@QEAA@AEBU0@@Z
 ??0StackResultStorageEntity@@QEAA@AEBVWeakStorageEntity@@@Z
 ??0StringByteInput@@QEAA@V?$basic_string_view@DU?$char_traits@D@std@@@std@@@Z
+??0StructureFeature@@QEAA@IVHashedString@@@Z
+??0StructurePoolElement@@QEAA@V?$not_null@V?$NonOwnerPointer@VStructureManager@@@Bedrock@@@gsl@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBV?$vector@V?$unique_ptr@VStructurePoolBlockRule@@U?$default_delete@VStructurePoolBlockRule@@@std@@@std@@V?$allocator@V?$unique_ptr@VStructurePoolBlockRule@@U?$default_delete@VStructurePoolBlockRule@@@std@@@std@@@2@@4@PEBV?$vector@V?$unique_ptr@VStructurePoolBlockTagRule@@U?$default_delete@VStructurePoolBlockTagRule@@@std@@@std@@V?$allocator@V?$unique_ptr@VStructurePoolBlockTagRule@@U?$default_delete@VStructurePoolBlockTagRule@@@std@@@std@@@2@@4@PEBV?$vector@V?$unique_ptr@VStructurePoolActorRule@@U?$default_delete@VStructurePoolActorRule@@@std@@@std@@V?$allocator@V?$unique_ptr@VStructurePoolActorRule@@U?$default_delete@VStructurePoolActorRule@@@std@@@std@@@2@@4@W4Projection@@W4PostProcessSettings@@@Z
 ??0StructureSettings@@QEAA@XZ
 ??0StructureTemplate@@QEAA@V?$basic_string_view@DU?$char_traits@D@std@@@std@@V?$NonOwnerPointer@VIUnknownBlockTypeRegistry@@@Bedrock@@@Z
+??0StructureTemplatePool@@QEAA@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0AEBV?$vector@U?$pair@PEBVStructurePoolElement@@H@std@@V?$allocator@U?$pair@PEBVStructurePoolElement@@H@std@@@2@@2@@Z
 ??0SynchedActorDataEntityWrapper@@QEAA@AEAVEntityContext@@@Z
 ??0SystemAddress@RakNet@@QEAA@XZ
 ??0TextPacket@@QEAA@XZ
@@ -340,6 +344,7 @@
 ??1ItemInstance@@UEAA@XZ
 ??1ItemRegistryRef@@QEAA@XZ
 ??1ItemStack@@UEAA@XZ
+??1JigsawPlacement@@QEAA@XZ
 ??1LevelEventPacket@@UEAA@XZ
 ??1MerchantRecipe@@QEAA@XZ
 ??1MinEngineVersion@@QEAA@XZ
@@ -374,6 +379,7 @@
 ??1PlayerFogPacket@@UEAA@XZ
 ??1PlayerListEntry@@QEAA@XZ
 ??1PlayerListPacket@@UEAA@XZ
+??1PoolAliasLookup@PoolAliasBinding@@QEAA@XZ
 ??1ProjectileHitEvent@@QEAA@XZ
 ??1ReadOnlyBinaryStream@@UEAA@XZ
 ??1Reader@Json@@QEAA@XZ
@@ -398,7 +404,11 @@
 ??1SpawnSettings@@QEAA@XZ
 ??1StringByteInput@@UEAA@XZ
 ??1StringByteOutput@@UEAA@XZ
+??1StructureFeature@@UEAA@XZ
+??1StructurePiece@@UEAA@XZ
 ??1StructureSettings@@QEAA@XZ
+??1StructureStart@@UEAA@XZ
+??1StructureTemplatePool@@QEAA@XZ
 ??1SynchedActorDataEntityWrapper@@QEAA@XZ
 ??1TeleportTarget@@QEAA@XZ
 ??1TextPacket@@UEAA@XZ
@@ -529,6 +539,7 @@
 ?_isLiquidBlocking@LiquidBlockDynamic@@QEBA_NAEAVBlockSource@@AEBVBlockPos@@1E@Z
 ?_lockRegistry@ItemRegistryRef@@QEBA?AV?$shared_ptr@VItemRegistry@@@std@@XZ
 ?_lookupByNameImpl@BlockTypeRegistry@@SA?AULookupByNameImplReturnType@1@AEBVHashedString@@HW4LookupByNameImplResolve@1@_N@Z
+?_needsPostProcessing@PoolElementStructurePiece@@UEAA_NAEAVBlockSource@@@Z
 ?_onPlayerLeft@ServerNetworkHandler@@QEAAXPEAVServerPlayer@@_N@Z
 ?_pickItemUp@PickupItemsGoal@@QEAAXPEAVItemActor@@@Z
 ?_placeGroundPatch@VegetationPatchFeature@@QEBA?AV?$vector@VBlockPos@@V?$allocator@VBlockPos@@@std@@@std@@AEAVIBlockWorldGenAPI@@AEAVRandom@@AEBVBlockPos@@HH@Z
@@ -578,13 +589,16 @@
 ?add@ListTag@@QEAAXV?$unique_ptr@VTag@@U?$default_delete@VTag@@@std@@@std@@@Z
 ?addBiomes@OverworldBiomeBuilder@@QEBAXAEAV?$vector@UBiomeNoiseTarget@@V?$allocator@UBiomeNoiseTarget@@@std@@@std@@AEBVBiomeRegistry@@@Z
 ?addBreakingItemParticleEffect@LevelListener@@UEAAXAEBVVec3@@AEBUBreakingItemParticleData@@AEBUResolvedItemIconInfo@@@Z
+?addChildren@StructurePiece@@UEAAXAEAV1@AEAV?$vector@V?$unique_ptr@VStructurePiece@@U?$default_delete@VStructurePiece@@@std@@@std@@V?$allocator@V?$unique_ptr@VStructurePiece@@U?$default_delete@VStructurePiece@@@std@@@std@@@2@@std@@AEAVRandom@@@Z
 ?addEffect@Actor@@QEAAXAEBVMobEffectInstance@@@Z
 ?addEnumValueConstraints@CommandRegistry@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@3@W4SemanticConstraint@@@Z
+?addHardcodedSpawnAreas@StructurePiece@@UEBAXAEAVLevelChunk@@@Z
 ?addHardcodedSpawnAreas@WorldGenerator@@UEAAXAEAVLevelChunk@@@Z
 ?addMessage@CommandOutput@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$vector@VCommandOutputParameter@@V?$allocator@VCommandOutputParameter@@@std@@@3@W4CommandOutputMessageType@@@Z
 ?addObjective@Scoreboard@@QEAAPEAVObjective@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0AEBVObjectiveCriteria@@@Z
 ?addPackSource@CompositePackSource@@QEAAXPEAVPackSource@@@Z
 ?addParticleEffect@LevelListener@@UEAAXAEBVHashedString@@AEBVActor@@0AEBVVec3@@AEBVMolangVariableMap@@@Z
+?addPieces@JigsawPlacement@@QEAAXAEBVStructurePoolElement@@AEBVBlockPos@@AEBW4Rotation@@V?$basic_string_view@DU?$char_traits@D@std@@@std@@AEBVPoolAliasLookup@PoolAliasBinding@@@Z
 ?addShapedRecipe@Recipes@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVItemInstance@@AEBV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@3@AEBV?$vector@VType@Recipes@@V?$allocator@VType@Recipes@@@std@@@3@AEBV?$vector@VHashedString@@V?$allocator@VHashedString@@@std@@@3@HV?$function@$$A6A?AV?$unique_ptr@VShapedRecipe@@U?$default_delete@VShapedRecipe@@@std@@@std@@V?$basic_string@DU?$c
 ?addShapelessRecipe@Recipes@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVItemInstance@@AEBV?$vector@VType@Recipes@@V?$allocator@VType@Recipes@@@std@@@3@AEBV?$vector@VHashedString@@V?$allocator@VHashedString@@@std@@@3@HV?$function@$$A6A?AV?$unique_ptr@VShapelessRecipe@@U?$default_delete@VShapelessRecipe@@@std@@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@2@AEBV?$vector@VRecipeIngredient@@V?$allocator@VRecipeIngredient@@@std@@@2@AEBV?$vector@VItemInstance@@V?$alloc
 ?addSoftEnum@CommandRegistry@@QEAAHAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@3@@Z
@@ -595,6 +609,8 @@
 ?allowCheats@PropertiesSettings@@QEBA_NXZ
 ?allowIncomingConnections@ServerNetworkHandler@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z
 ?append@RedactableString@Safety@Bedrock@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+?appendMetadataKey@StructurePoolBlockPredicateAlwaysTrue@@UEBAXAEAVXXHash@Util@@@Z
+?appendMetadataKey@StructurePoolBlockPredicateBlockMatchRandom@@UEBAXAEAVXXHash@Util@@@Z
 ?applyEnchant@EnchantUtils@@SA_NAEAVItemStackBase@@W4Type@Enchant@@H_N@Z
 ?applyMobEffects@SplashPotionEffectSubcomponent@@QEAAXAEBVMobEffectInstance@@AEBV?$vector@PEAVActor@@V?$allocator@PEAVActor@@@std@@@std@@AEAVActor@@AEBV?$shared_ptr@$$CBVPotion@@@4@MPEAVMobEffect@@AEAVHitResult@@H@Z
 ?applyTarget@TeleportCommand@@SAXAEAVActor@@VTeleportTarget@@_N@Z
@@ -609,13 +625,16 @@
 ?begin@Value@Json@@QEBA?AVValueConstIterator@2@XZ
 ?blockDestroy@GameEventRegistry@@YAAEBVGameEvent@@XZ
 ?blockPlace@GameEventRegistry@@YAAEBVGameEvent@@XZ
+?bootstrap@StructurePools@worldgen@br@@SAXV?$not_null@V?$NonOwnerPointer@VStructureManager@@@Bedrock@@@gsl@@AEAVFeatureRegistry@@AEAVJigsawStructureRegistry@@AEBVBaseGameVersion@@AEBVExperiments@@@Z
 ?branchingWrite_DEPRECATED@BinaryStream@@UEAAX$$QEAV?$function@$$A6AXAEAVBinaryStream@@H@Z@std@@HAEBV?$vector@HV?$allocator@H@std@@@3@PEBD@Z
 ?branchingWrite_DEPRECATED@BinaryStream@@UEAAX$$QEAV?$function@$$A6AXAEAVBinaryStream@@H@Z@std@@HHHPEBD@Z
 ?buildBrightnessRamp@DimensionBrightnessRamp@@UEAAXXZ
 ?buildDescriptionId@Block@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?buildDescriptionIdFromNameInfo@BlockLegacy@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBUNameInfo@1@@Z
 ?buildDescriptionName@Block@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+?calculateBoundingBox@StructureStart@@QEAAXXZ
 ?canBeFertilized@Block@@QEBA_NAEAVBlockSource@@AEBVBlockPos@@AEBV1@@Z
+?canBeReplaced@StructurePiece@@UEAA_NAEAVBlockSource@@HHHAEBVBoundingBox@@@Z
 ?canChangeDimension@ActorDimensionTransferManager@@QEAA_NAEBVActor@@V?$AutomaticID@VDimension@@H@@@Z
 ?canCreateViews@ChunkSource@@UEBA_NXZ
 ?canDestroy@ItemStackBase@@QEBA_NPEBVBlock@@@Z
@@ -650,6 +669,7 @@
 ?collectOptionalArguments@Command@@UEAA_NXZ
 ?compact@ChunkSource@@UEAAXXZ
 ?compileCommand@MinecraftCommands@@QEAAPEAVCommand@@AEBVHashedString@@AEAVCommandOrigin@@W4CurrentCmdVersion@@V?$function@$$A6AXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z@std@@@Z
+?computeHeightMap@BlockVolume@@QEBA?AV?$unique_ptr@V?$vector@FV?$allocator@F@std@@@std@@U?$default_delete@V?$vector@FV?$allocator@F@std@@@std@@@2@@std@@XZ
 ?computeTarget@TeleportCommand@@SA?AVTeleportTarget@@AEAVActor@@VVec3@@PEAV4@V?$AutomaticID@VDimension@@H@@AEBV?$optional@VRotationData@RotationCommandUtils@@@std@@H@Z
 ?contains@CompoundTag@@QEBA_NV?$basic_string_view@DU?$char_traits@D@std@@@std@@@Z
 ?contains@CompoundTag@@QEBA_NV?$basic_string_view@DU?$char_traits@D@std@@@std@@W4Type@Tag@@@Z
@@ -727,6 +747,7 @@
 ?fillBiomes@FixedBiomeSource@@UEBAXAEAVLevelChunk@@AEBVChunkLocalNoiseCache@@@Z
 ?fillContainer@LootTableUtils@Util@@SAXAEAVLevel@@AEAVContainer@@AEAVRandom@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$AutomaticID@VDimension@@H@@PEAVActor@@@Z
 ?fillFromWorld@StructureTemplate@@QEAAXAEAVBlockSource@@AEBVBlockPos@@AEBVStructureSettings@@@Z
+?finalize@IStructurePoolBlockPredicate@@UEAA_NAEAVBlockSource@@AEAVIRandom@@@Z
 ?findCommand@CommandRegistry@@QEAAPEAUSignature@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ?findNearestStructureFeature@FlatWorldGenerator@@UEAA_NVHashedString@@AEBVBlockPos@@AEAV3@_NV?$optional@VHashedString@@@std@@@Z
 ?findRelationships@CircuitSceneGraph@@QEAAXAEBVBlockPos@@PEAVBaseCircuitComponent@@PEAVBlockSource@@@Z
@@ -745,6 +766,7 @@
 ?fromTag@ItemStack@@SA?AV1@AEBVCompoundTag@@@Z
 ?gProfilerLiteInstance@ProfilerLite@@SAAEAV1@XZ
 ?garbageCollectBlueprints@FlatWorldGenerator@@UEAAXV?$buffer_span@VChunkPos@@@@@Z
+?generateBox@StructurePiece@@UEAAXAEAVBlockSource@@AEBVBoundingBox@@HHHHHHAEBVBlock@@2_N@Z
 ?generateRandomDeathLoot@LootTableUtils@Util@@SA?AV?$vector@VItemStack@@V?$allocator@VItemStack@@@std@@@std@@AEBVLootTable@@AEAVActor@@PEBVActorDamageSource@@PEBVItemStack@@PEAVPlayer@@M@Z
 ?generateUUID@Random@Crypto@@YA?AVUUID@mce@@XZ
 ?get@ListTag@@QEBAPEAVTag@@H@Z
@@ -953,6 +975,7 @@
 ?getMaxHealth@Actor@@QEBAHXZ
 ?getMaxStackSize@ItemStackBase@@QEBAEXZ
 ?getMaxValue@AttributeInstance@@QEBAMXZ
+?getMaxYSpawnOffset@StructureStart@@UEBAHXZ
 ?getMemberNames@Value@Json@@QEBA?AV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@XZ
 ?getMessage@Text@SignBlockActor@@QEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?getMessageId@CommandOutputMessage@@QEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
@@ -1057,6 +1080,7 @@
 ?getStackSize@ItemDescriptorCount@@QEBAFXZ
 ?getStorage@ChunkSource@@UEBAAEBV?$unordered_map@VChunkPos@@V?$weak_ptr@VLevelChunk@@@std@@U?$hash@VChunkPos@@@3@U?$equal_to@VChunkPos@@@3@V?$allocator@U?$pair@$$CBVChunkPos@@V?$weak_ptr@VLevelChunk@@@std@@@std@@@3@@std@@XZ
 ?getStringId@Enchant@@QEBAAEBVHashedString@@XZ
+?getStructureAt@StructureFeature@@UEAAPEAVStructureStart@@HHH@Z
 ?getSuccessCount@CommandOutput@@QEBAHXZ
 ?getText@CommandRawText@@QEBAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?getThreadLocal@Random@@SAAEAV1@XZ
@@ -1067,6 +1091,9 @@
 ?getType@DefaultDataLoadHelper@@UEBA?AW4DataLoadHelperType@@XZ
 ?getType@GameRule@@QEBA?AW4Type@1@XZ
 ?getType@NewUniqueIdsDataLoadHelper@@UEBA?AW4DataLoadHelperType@@XZ
+?getType@StructurePiece@@UEBA?AW4StructurePieceType@@XZ
+?getType@StructurePoolBlockPredicateAlwaysTrue@@UEBA?AW4StructurePoolBlockPredicateType@@XZ
+?getType@StructurePoolBlockPredicateBlockMatchRandom@@UEBA?AW4StructurePoolBlockPredicateType@@XZ
 ?getUUID@CommandOrigin@@UEBAAEBVUUID@mce@@XZ
 ?getUserData@ItemStackBase@@QEBAPEBVCompoundTag@@XZ
 ?getVehicle@Actor@@QEBAPEAV1@XZ
@@ -1077,6 +1104,8 @@
 ?getWorldPosition@ActorCommandOrigin@@UEBA?AVVec3@@XZ
 ?getWorldPosition@PlayerCommandOrigin@@UEBA?AVVec3@@XZ
 ?getWorldPosition@ServerCommandOrigin@@UEBA?AVVec3@@XZ
+?getWorldX@StructurePiece@@UEAAHHH@Z
+?getWorldZ@StructurePiece@@UEAAHHH@Z
 ?getXpNeededForNextLevel@Player@@QEBAHXZ
 ?getXuid@ExtendedCertificate@@SA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVCertificate@@_N@Z
 ?getXuid@GameServerToken@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_N@Z
@@ -1146,6 +1175,7 @@
 ?isFallingBlockDamage@ActorDamageSource@@UEBA_NXZ
 ?isFire@ActorDamageSource@@UEBA_NXZ
 ?isFlying@Player@@QEBA_NXZ
+?isInInvalidLocation@StructurePiece@@UEAA_NAEAVBlockSource@@AEBVBoundingBox@@@Z
 ?isInWater@Actor@@QEBA_NXZ
 ?isInteractiveBlock@Block@@QEBA_NXZ
 ?isInvertedHealAndHarm@Actor@@QEBA_NXZ
@@ -1182,6 +1212,7 @@
 ?isValid@PlayerCommandOrigin@@UEBA_NXZ
 ?isValid@ScoreboardId@@QEBA_NXZ
 ?isValid@ServerCommandOrigin@@UEBA_NXZ
+?isValid@StructureStart@@UEBA_NXZ
 ?isValidFireLocation@FireBlock@@QEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
 ?isValidSpawn@Dimension@@UEBA_NHH@Z
 ?isWithinWorldLimit@ChunkSource@@UEBA_NAEBVChunkPos@@@Z
@@ -1245,6 +1276,9 @@
 ?lookupByName@BiomeRegistry@@QEAAPEAVBiome@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ?lookupByName@BiomeRegistry@@QEBAPEAVBiome@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ?lookupByName@BlockTypeRegistry@@SA?AV?$WeakPtr@VBlockLegacy@@@@AEBVHashedString@@_N@Z
+?lookupByName@JigsawStructureBlockRulesRegistry@@QEBAPEBV?$vector@V?$unique_ptr@VStructurePoolBlockRule@@U?$default_delete@VStructurePoolBlockRule@@@std@@@std@@V?$allocator@V?$unique_ptr@VStructurePoolBlockRule@@U?$default_delete@VStructurePoolBlockRule@@@std@@@std@@@2@@std@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@@Z
+?lookupByName@JigsawStructureElementRegistry@@QEBAPEBVStructurePoolElement@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
+?lookupByName@JigsawStructureRegistry@@QEBAPEBVStructureTemplatePool@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ?lookupCause@ActorDamageSource@@SA?AW4ActorDamageCause@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ?mMayTake@EnderMan@@SAAEAV?$set@PEBVBlock@@U?$less@PEBVBlock@@@std@@V?$allocator@PEBVBlock@@@3@@std@@XZ
 ?mServer@StopCommand@@SAAEAPEAVDedicatedServer@@XZ
@@ -1255,6 +1289,8 @@
 ?move@ChunkViewSource@@QEAAXAEBUBounds@@_NW4ChunkSourceViewGenerateMode@@V?$function@$$A6AXV?$buffer_span_mut@V?$shared_ptr@VLevelChunk@@@std@@@@V?$buffer_span@I@@@Z@std@@PEBM@Z
 ?move@ChunkViewSource@@QEAAXAEBVBlockPos@@0_NW4ChunkSourceViewGenerateMode@@V?$function@$$A6AXV?$buffer_span_mut@V?$shared_ptr@VLevelChunk@@@std@@@@V?$buffer_span@I@@@Z@std@@PEBM@Z
 ?move@ChunkViewSource@@QEAAXAEBVBlockPos@@H_NW4ChunkSourceViewGenerateMode@@V?$function@$$A6AXV?$buffer_span_mut@V?$shared_ptr@VLevelChunk@@@std@@@@V?$buffer_span@I@@@Z@std@@PEBM@Z
+?moveBoundingBox@PoolElementStructurePiece@@UEAAXHHH@Z
+?moveBoundingBox@StructurePiece@@UEAAXHHH@Z
 ?movedByPiston@Block@@QEBAXAEAVBlockSource@@AEBVBlockPos@@@Z
 ?nameToGameRuleIndex@GameRules@@QEBA?AUGameRuleId@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ?numBytesLeft@StringByteInput@@UEBA_KXZ
@@ -1287,6 +1323,7 @@
 ?parse@ExpressionNode@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@W4MolangVersion@@V?$span@$$CBVHashedString@@$0?0@gsl@@@Z
 ?parse@Reader@Json@@QEAA_NAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAVValue@2@_N@Z
 ?persistPlayerPermissionsToDisk@ServerNetworkHandler@@QEAAXAEBVUserEntityIdentifierComponent@@W4PlayerPermissionLevel@@@Z
+?placeBlock@StructurePiece@@UEAAXAEAVBlockSource@@AEBVBlock@@HHHAEBVBoundingBox@@@Z
 ?placeInWorld@StructureTemplate@@QEBAXAEAVBlockSource@@AEBVBlockPalette@@AEBVBlockPos@@AEBVStructureSettings@@PEAVStructureTelemetryServerData@@_N@Z
 ?playMusic@LevelListener@@UEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVVec3@@MM@Z
 ?playStreamingMusic@LevelListener@@UEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@HHH@Z
@@ -1295,6 +1332,10 @@
 ?playerWillDestroy@Block@@QEBAPEBV1@AEAVPlayer@@AEBVBlockPos@@@Z
 ?postNormalTick@ItemActor@@QEAAXXZ
 ?postProcess@FlatWorldGenerator@@UEAA_NAEAVChunkViewSource@@@Z
+?postProcess@PoolElementStructurePiece@@UEAA_NAEAVBlockSource@@AEAVRandom@@AEBVBoundingBox@@@Z
+?postProcess@StructureStart@@UEAA_NAEAVBlockSource@@AEAVRandom@@AEBVBoundingBox@@@Z
+?postProcessMobsAt@PoolElementStructurePiece@@UEAAXAEAVBlockSource@@AEAVRandom@@AEBVBoundingBox@@@Z
+?postProcessMobsAt@StructurePiece@@UEAAXAEAVBlockSource@@AEAVRandom@@AEBVBoundingBox@@@Z
 ?postProcessMobsAt@WorldGenerator@@UEAAXAEAVBlockSource@@HHAEAVRandom@@@Z
 ?postProcessMobsAt@WorldGenerator@@UEBAXAEAVBlockSource@@AEBVBoundingBox@@@Z
 ?prepareAndComputeHeights@FlatWorldGenerator@@UEAAXAEAVBlockVolume@@AEBVChunkPos@@AEAV?$vector@FV?$allocator@F@std@@@std@@_NH@Z
@@ -1338,9 +1379,12 @@
 ?readStringResult@VarIntDataInput@@UEAA?AV?$Result@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@Verror_code@2@@Bedrock@@XZ
 ?recomputeHeightMap@LevelChunk@@QEAAX_N@Z
 ?registerAlias@CommandRegistry@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0@Z
+?registerBlockRules@JigsawStructureBlockRulesRegistry@@QEAAXV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@$$QEAV?$unique_ptr@V?$vector@V?$unique_ptr@VStructurePoolBlockRule@@U?$default_delete@VStructurePoolBlockRule@@@std@@@std@@V?$allocator@V?$unique_ptr@VStructurePoolBlockRule@@U?$default_delete@VStructurePoolBlockRule@@@std@@@std@@@2@@std@@U?$default_delete@V?$vector@V?$unique_ptr@VStructurePoolBlockRule@@U?$default_delete@VStructurePoolBlockRule@@@std@@@std@@V?$allocator@V?$unique_ptr@VStructurePoolBlockRule@@U?$default_delete@VStructurePoolBlockRule@@@std@@@std@@@2@@std@@@2@@3@@Z
 ?registerCommand@CommandRegistry@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@PEBDW4CommandPermissionLevel@@UCommandFlag@@3@Z
 ?registerCustomBiome@BiomeRegistry@@QEAAAEAVBiome@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ?registerOverloadInternal@CommandRegistry@@QEAAXAEAUSignature@1@AEAUOverload@1@@Z
+?registerPool@JigsawStructureRegistry@@QEAAX$$QEAV?$unique_ptr@VStructureTemplatePool@@U?$default_delete@VStructureTemplatePool@@@std@@@std@@@Z
+?registerStructureElement@JigsawStructureElementRegistry@@QEAAAEBVStructurePoolElement@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@$$QEAV?$unique_ptr@VStructurePoolElement@@U?$default_delete@VStructurePoolElement@@@std@@@4@@Z
 ?reinit@ItemStack@@UEAAXAEBVBlockLegacy@@H@Z
 ?reinit@ItemStack@@UEAAXAEBVItem@@HH@Z
 ?reinit@ItemStack@@UEAAXV?$basic_string_view@DU?$char_traits@D@std@@@std@@HH@Z
@@ -1525,7 +1569,9 @@
 ?setup@XPCommand@@SAXAEAVCommandRegistry@@@Z
 ?setupStandaloneServer@DedicatedServerCommands@@SAXAEBV?$not_null@V?$NonOwnerPointer@VMinecraft@@@Bedrock@@@gsl@@AEAVIMinecraftApp@@AEAVLevel@@AEAVLevelStorage@@AEAVDedicatedServer@@AEAVAllowListFile@@PEAUScriptSettings@@@Z
 ?shoot@ProjectileComponent@@QEAAXAEAVActor@@AEBVVec3@@MM1PEAV2@@Z
+?shouldAddHardcodedSpawnAreas@StructureFeature@@UEBA_NXZ
 ?shouldKeepOnDeath@ItemLockHelper@@SA_NAEBVItemStackBase@@@Z
+?shouldPostProcessMobs@StructureFeature@@UEBA_NXZ
 ?shouldResetTime@DefaultDataLoadHelper@@UEAA_NXZ
 ?shouldResetTime@NewUniqueIdsDataLoadHelper@@UEAA_NXZ
 ?showSky@Dimension@@UEBA_NXZ
@@ -1542,6 +1588,10 @@
 ?take@Player@@QEAA_NAEAVActor@@HH@Z
 ?takePicture@LevelListener@@UEAAXAEAVImageBuffer@cg@@PEAVActor@@1AEAUScreenshotOptions@@V?$function@$$A6AXAEAVImageBuffer@cg@@AEAUScreenshotOptions@@@Z@std@@@Z
 ?teleport@GameEventRegistry@@YAAEBVGameEvent@@XZ
+?test@StructurePoolBlockPredicateAlwaysTrue@@UEBA_NAEBVBlock@@AEAVRandomize@@@Z
+?test@StructurePoolBlockPredicateAlwaysTrue@@UEBA_NAEBVBlockPos@@0AEAVRandomize@@@Z
+?test@StructurePoolBlockPredicateBlockMatchRandom@@UEBA_NAEBVBlock@@AEAVRandomize@@@Z
+?test@StructurePoolBlockPredicateBlockMatchRandom@@UEBA_NAEBVBlockPos@@0AEAVRandomize@@@Z
 ?texturePackRequired@PropertiesSettings@@QEBA_NXZ
 ?tick@Actor@@QEAA_NAEAVBlockSource@@@Z
 ?tick@Dimension@@UEAAXXZ
@@ -1583,6 +1633,7 @@
 ?tryGetFromEntity@ServerPlayer@@SAPEAV1@AEAVEntityContext@@_N@Z
 ?tryGetServerNetId@NetworkItemStackDescriptor@@QEBAPEBV?$TypedServerNetId@UItemStackNetIdTag@@H$0A@@@XZ
 ?tryGetStateFromLegacyData@BlockLegacy@@QEBAPEBVBlock@@G@Z
+?tryLock@PostprocessingManager@@QEAA?AV?$optional@V?$vector@ULockedChunk@PostprocessingManager@@V?$allocator@ULockedChunk@PostprocessingManager@@@std@@@std@@@std@@AEBVChunkPos@@AEAVChunkSource@@@Z
 ?trySpawnPigZombie@PortalBlock@@SAXAEAVBlockSource@@AEBVBlockPos@@W4PortalAxis@@@Z
 ?unregisterItem@ItemRegistryRef@@QEBAXAEBVHashedString@@@Z
 ?update@CircuitSceneGraph@@QEAAXPEAVBlockSource@@@Z
@@ -1596,6 +1647,7 @@
 ?useAllowList@PropertiesSettings@@QEBA_NXZ
 ?useOnlineAuthentication@PropertiesSettings@@QEBA_NXZ
 ?validRange@Command@@SA_NHHHAEAVCommandOutput@@@Z
+?validate@IStructurePoolBlockPredicate@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?write@?$serialize@USerializedAbilitiesData@@@@SAXAEBUSerializedAbilitiesData@@AEAVBinaryStream@@@Z
 ?write@?$serialize@V?$vector@V?$unique_ptr@VDataItem@@U?$default_delete@VDataItem@@@std@@@std@@V?$allocator@V?$unique_ptr@VDataItem@@U?$default_delete@VDataItem@@@std@@@std@@@2@@std@@@@SAXAEBV?$vector@V?$unique_ptr@VDataItem@@U?$default_delete@VDataItem@@@std@@@std@@V?$allocator@V?$unique_ptr@VDataItem@@U?$default_delete@VDataItem@@@std@@@std@@@2@@std@@AEAVBinaryStream@@@Z
 ?write@?$serialize@VCompoundTag@@@@SAXAEBVCompoundTag@@AEAVBinaryStream@@@Z
