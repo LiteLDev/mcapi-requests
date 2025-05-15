@@ -234,6 +234,9 @@
 ??0ItemStack@@QEAA@XZ
 ??0LayeredAbilities@@QEAA@AEBV0@@Z
 ??0LevelEventPacket@@QEAA@W4LevelEvent@@AEBVVec3@@H@Z
+??0MerchantRecipe@@QEAA@$$QEAV0@@Z
+??0MerchantRecipe@@QEAA@AEBV0@@Z
+??0MerchantRecipe@@QEAA@AEBVItemInstance@@0@Z
 ??0MinEngineVersion@@QEAA@AEBVSemVersion@@@Z
 ??0MobEffectInstance@@QEAA@$$QEAV0@@Z
 ??0MobEffectInstance@@QEAA@AEBV0@@Z
@@ -336,6 +339,7 @@
 ??1ItemRegistryRef@@QEAA@XZ
 ??1ItemStack@@UEAA@XZ
 ??1LevelEventPacket@@UEAA@XZ
+??1MerchantRecipe@@QEAA@XZ
 ??1MinEngineVersion@@QEAA@XZ
 ??1MobEffectInstance@@QEAA@XZ
 ??1ModalFormRequestPacket@@UEAA@XZ
@@ -409,6 +413,7 @@
 ??4HitResult@@QEAAAEAV0@$$QEAV0@@Z
 ??4ItemStack@@QEAAAEAV0@AEBV0@@Z
 ??4ItemStackBase@@QEAAAEAV0@AEBV0@@Z
+??4MerchantRecipe@@QEAAAEAV0@AEBV0@@Z
 ??4MobEffectInstance@@QEAAAEAV0@$$QEAV0@@Z
 ??4ScoreboardId@@QEAAAEAU0@AEBU0@@Z
 ??4SemVersion@@QEAAAEAV0@AEBV0@@Z
