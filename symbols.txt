@@ -363,9 +363,11 @@
 ??1NameInfo@BlockLegacy@@QEAA@XZ
 ??1NetworkItemStackDescriptor@@UEAA@XZ
 ??1NewUniqueIdsDataLoadHelper@@UEAA@XZ
+??1OverloadData@AvailableCommandsPacket@@QEAA@XZ
 ??1OwnerStorageEntity@@QEAA@XZ
 ??1PackIdVersion@@QEAA@XZ
 ??1Packet@@UEAA@XZ
+??1ParamData@AvailableCommandsPacket@@QEAA@XZ
 ??1PlayerActionPacket@@UEAA@XZ
 ??1PlayerFogPacket@@UEAA@XZ
 ??1PlayerListEntry@@QEAA@XZ
