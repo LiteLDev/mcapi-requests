@@ -57,6 +57,7 @@
 ?$getPlayer@Level@@QEBAPEAVPlayer@@AEBVUUID@mce@@@Z
 ?$getXuid@Player@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?$handle@ComplexInventoryTransaction@@QEBA?AW4InventoryTransactionError@@AEAVPlayer@@_N@Z
+?$handle@ItemUseOnActorInventoryTransaction@@QEBA?AW4InventoryTransactionError@@AEAVPlayer@@_N@Z
 ?$handle@ServerNetworkHandler@@QEAAXAEBVNetworkIdentifier@@AEBVAnimatePacket@@@Z
 ?$handle@ServerNetworkHandler@@QEAAXAEBVNetworkIdentifier@@AEBVContainerClosePacket@@@Z
 ?$handle@ServerNetworkHandler@@QEAAXAEBVNetworkIdentifier@@AEBVItemStackRequestPacket@@@Z
@@ -482,6 +483,7 @@
 ?UNDERWATER_MOVEMENT_SPEED@SharedAttributes@@SAAEBVAttribute@@XZ
 ?Undefined@VanillaDimensions@@SAAEBV?$AutomaticID@VDimension@@H@@XZ
 ?WHITE@Color@mce@@SAAEBV12@XZ
+?WaterBucket@VanillaItemNames@@YAAEBVHashedString@@XZ
 ?YELLOW@Color@mce@@SAAEBV12@XZ
 ?ZERO@Vec3@@SAAEBV1@XZ
 ?_addEnumValuesInternal@CommandRegistry@@QEAA?AVSymbol@1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBV?$vector@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_K@std@@V?$allocator@U?$pair@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@_K@std@@@2@@4@V?$typeid_t@VCommandRegistry@@@Bedrock@@P81@EBA_NPEAXAEBUParseToken@1@AEBVCommandOrigin@@HAEAV34@AEAV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@4@@Z@Z
@@ -737,6 +739,7 @@
 ?getActorFlag@SynchedActorDataAccess@@YA_NAEBVEntityContext@@W4ActorFlags@@@Z
 ?getActorIdentifier@Actor@@QEBAAEBUActorDefinitionIdentifier@@XZ
 ?getAliases@CommandRegistry@@QEBA?AV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@@Z
+?getAmount@AttributeBuff@@QEBAMXZ
 ?getArmorContainer@ActorEquipment@@YAAEAVSimpleContainer@@AEAVEntityContext@@@Z
 ?getArmorCoverPercentage@Mob@@QEBAMXZ
 ?getAttachPos@Actor@@QEBA?AVVec3@@W4ActorLocation@Legacy@SharedTypes@@@Z
@@ -782,6 +785,7 @@
 ?getBrightnessRamp@Dimension@@UEBAAEBVDimensionBrightnessRamp@@XZ
 ?getBuildInfo@Common@@YA?AUBuildInfo@1@XZ
 ?getById@MobEffect@@SAPEAV1@I@Z
+?getByName@Attribute@@SAAEAV1@AEBVHashedString@@@Z
 ?getByName@MobEffect@@SAPEAV1@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ?getCarryingBlock@EnderMan@@QEBAAEBVBlock@@XZ
 ?getCategoryName@ItemStackBase@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
@@ -1535,6 +1539,7 @@
 ?toString@ByteTag@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?toString@CompoundTag@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?toString@DoubleTag@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+?toString@EffectDuration@@QEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?toString@EndTag@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?toString@FloatTag@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?toString@Int64Tag@@UEBA?AV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
@@ -1664,6 +1669,3 @@
 ?writeVarInt64@BinaryStream@@UEAAX_JPEBD1@Z
 ?writeVarInt@BinaryStream@@QEAAXHPEBD0@Z
 ?writeVarInt@BinaryStream@@UEAAXHPEBD0@Z
-?$handle@ItemUseOnActorInventoryTransaction@@QEBA?AW4InventoryTransactionError@@AEAVPlayer@@_N@Z
-?WaterBucket@VanillaItemNames@@YAAEBVHashedString@@XZ
-?getByName@Attribute@@SAAEAV1@AEBVHashedString@@@Z
