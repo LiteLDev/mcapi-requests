@@ -8,6 +8,7 @@ body:
       label: Symbols
       description: The symbols provided by the error message during linking. One symbol per line.
       placeholder: "e.g.\n?$exmapleMethod@ExampleClass@@QEAAXH@Z\n?$anotherMethod@AnotherClass@@QEAA_NXZ"
+      render: text
     validations:
       required: true
 
