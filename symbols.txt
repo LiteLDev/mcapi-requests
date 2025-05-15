@@ -16,6 +16,7 @@
 ?$checkBlockPermissions@BlockSource@@QEAA_NAEAVActor@@AEBVBlockPos@@EAEBVItemStackBase@@_N@Z
 ?$chooseLanguage@I18nImpl@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ?$consumeTotem@Player@@QEAA_NXZ
+?$createGenerator@OverworldDimension@@QEAA?AV?$unique_ptr@VWorldGenerator@@U?$default_delete@VWorldGenerator@@@std@@@std@@AEBVStructureSetRegistry@worldgen@br@@@Z
 ?$createSnapshot@DBStorage@@QEAA?AV?$vector@USnapshotFilenameAndLength@@V?$allocator@USnapshotFilenameAndLength@@@std@@@std@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@3@_N@Z
 ?$ctor@BatchedNetworkPeer@@QEAAPEAXV?$shared_ptr@VNetworkPeer@@@std@@AEAVScheduler@@@Z
 ?$ctor@CommandRegistry@@QEAAPEAX_N@Z
