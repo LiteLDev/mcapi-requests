@@ -554,6 +554,7 @@
 ?_upgradeLevelChunkViaMetaData@VanillaLevelChunkUpgrade@@YAXAEAVLevelChunk@@0AEAVBlockSource@@@Z
 ?_useInventory@CauldronBlock@@QEBAXAEAVPlayer@@AEAVItemStack@@1H@Z
 ?_writeArray@BinaryStream@@UEAAX$$QEAV?$function@$$A6AXAEAVBinaryStream@@@Z@std@@0PEBD1@Z
+?abcdefg
 ?achievementsWillBeDisabledOnLoad@LevelData@@QEBA_NXZ
 ?acquireDiscarded@ChunkSource@@UEAAXV?$unique_ptr@VLevelChunk@@ULevelChunkFinalDeleter@@@std@@@Z
 ?actorChangeDimension@ActorDimensionTransferManager@@QEAAXAEAVActor@@V?$AutomaticID@VDimension@@H@@AEBV?$optional@VVec3@@@std@@@Z
@@ -1090,6 +1091,7 @@
 ?hash@ListTag@@UEBA_KXZ
 ?hash@ShortTag@@UEBA_KXZ
 ?hash@StringTag@@UEBA_KXZ
+?hijklmn
 ?hintDiscardBatchBegin@ChunkSource@@UEAAXXZ
 ?hintDiscardBatchEnd@ChunkSource@@UEAAXXZ
 ?hurt@Actor@@QEAA_NAEBVActorDamageSource@@M_N1@Z
@@ -1669,3 +1671,5 @@
 ?writeVarInt64@BinaryStream@@UEAAX_JPEBD1@Z
 ?writeVarInt@BinaryStream@@QEAAXHPEBD0@Z
 ?writeVarInt@BinaryStream@@UEAAXHPEBD0@Z
+```
+```text
