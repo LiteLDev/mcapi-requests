@@ -526,6 +526,7 @@
 ?_blockUsingShield@Player@@QEAA_NAEBVActorDamageSource@@M@Z
 ?_broadcastUpdateToClients@PositionTrackingDBServer@PositionTrackingDB@@QEAAXPEBVTrackingRecord@2@@Z
 ?_buildSubChunkPacketData@ServerNetworkHandler@@QEAAXAEBVNetworkIdentifier@@PEBVServerPlayer@@AEBVSubChunkRequestPacket@@AEAVSubChunkPacket@@I_N@Z
+?_buildSurface@Utils@VanillaSurfaceBuilders@@YAXAEBUSurfaceMaterialBlocks@@PEBVBlock@@AEBUSurfaceMaterialAdjustmentEvaluated@@AEAVRandom@@AEAVBlockVolume@@AEBVBlockPos@@FH_NW4WaterLevelStrategy@ISurfaceBuilder@@HAEBVHeightmapWrapper@@6@Z
 ?_createChunkBuildOrderPolicy@Dimension@@UEAA?AV?$unique_ptr@VChunkBuildOrderPolicyBase@@U?$default_delete@VChunkBuildOrderPolicyBase@@@std@@@std@@XZ
 ?_destroyBlocks@WitherBoss@@QEAAXAEAVLevel@@AEBVAABB@@AEAVBlockSource@@HW4WitherAttackType@1@@Z
 ?_explode@RespawnAnchorBlock@@SAXAEAVPlayer@@AEBVBlockPos@@AEAVBlockSource@@AEAVLevel@@@Z
