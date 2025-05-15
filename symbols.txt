@@ -214,6 +214,7 @@
 ??0CommandOutputParameter@@QEAA@AEBV?$vector@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@V?$allocator@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@2@@std@@@Z
 ??0CommandPosition@@QEAA@AEBVVec3@@@Z
 ??0CommandPosition@@QEAA@XZ
+??0ConnectionDefinition@@QEAA@AEBU0@@Z
 ??0DBStorageConfig@@QEAA@$$QEAU0@@Z
 ??0Dimension@@QEAA@AEAVILevel@@V?$AutomaticID@VDimension@@H@@VDimensionHeightRange@@AEAVScheduler@@V?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ??0ExpressionNode@@QEAA@XZ
@@ -255,6 +256,7 @@
 ??0MolangVariableMap@@QEAA@XZ
 ??0NetherGenerator@@QEAA@AEAVDimension@@IPEBVBiome@@@Z
 ??0NetworkItemStackDescriptor@@QEAA@AEBVItemStack@@@Z
+??0NetworkServerConfig@@QEAA@AEBU0@@Z
 ??0OverworldGeneratorMultinoise@@QEAA@AEAVDimension@@VLevelSeed64@@PEBVBiome@@@Z
 ??0PlayerListEntry@@QEAA@AEBVPlayer@@@Z
 ??0PlayerListEntry@@QEAA@VUUID@mce@@@Z
@@ -262,6 +264,7 @@
 ??0PlayerListPacket@@QEAA@XZ
 ??0PlayerScoreboardId@@QEAA@XZ
 ??0PlayerScoreboardId@@QEAA@_J@Z
+??0PlayerTickConfig@@QEAA@AEBU0@@Z
 ??0ReadOnlyBinaryStream@@QEAA@V?$basic_string_view@DU?$char_traits@D@std@@@std@@_N@Z
 ??0Reader@Json@@QEAA@XZ
 ??0RecipeIngredient@@QEAA@AEBV0@@Z
@@ -269,6 +272,7 @@
 ??0RecipeUnlockingRequirement@@QEAA@XZ
 ??0RedactableString@Safety@Bedrock@@QEAA@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
 ??0RemoveActorPacket@@QEAA@UActorUniqueID@@@Z
+??0ReplayStateConfig@@QEAA@AEBU0@@Z
 ??0ScoreboardId@@QEAA@AEBU0@@Z
 ??0ScoreboardId@@QEAA@XZ
 ??0ScoreboardId@@QEAA@_J@Z
@@ -369,6 +373,7 @@
 ??1MolangVariableMap@@QEAA@XZ
 ??1NameInfo@BlockLegacy@@QEAA@XZ
 ??1NetworkItemStackDescriptor@@UEAA@XZ
+??1NetworkServerConfig@@QEAA@XZ
 ??1NewUniqueIdsDataLoadHelper@@UEAA@XZ
 ??1OverloadData@AvailableCommandsPacket@@QEAA@XZ
 ??1OwnerStorageEntity@@QEAA@XZ
