@@ -41,10 +41,10 @@ def main() -> None:
 
     new_symbols_text = issue_parser_result.get("symbols", "")
 
-    new_symbols = new_symbols_text.split()
+    new_symbols = new_symbols_text.splitlines()
 
     with open(SYMBOLS_FILE_PATH, "r", encoding="utf-8") as f:
-        symbols = f.read().split()
+        symbols = [line.strip() for line in f.readlines()]
 
     symbols.extend(new_symbols)
 
