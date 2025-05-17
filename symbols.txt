@@ -1,7 +1,3 @@
-#
-2025-05-16
+# last clear day 2025-05-16
 ??1MolangOffsetPlaceholder@@QEAA@XZ
 ?saveGameData@LevelStorageManager@@QEAAXV?$time_point@Usteady_clock@chrono@std@@V?$duration@_JU?$ratio@$00$0DLJKMKAA@@std@@@23@@chrono@std@@@Z
-clear
-day
-last
