@@ -1,2 +1,22 @@
 # last clear day 2025-05-16
+?$vftable@ArmorStandItem@@SAPEAPEAXXZ
+?$vftable@ArrowItem@@SAPEAPEAXXZ
+?$vftable@AuxDataBlockItem@@SAPEAPEAXXZ
+?$vftable@BedItem@@SAPEAPEAXXZ
+?$vftable@BlockItem@@SAPEAPEAXXZ
+?$vftable@BoatItem@@SAPEAPEAXXZ
+?$vftable@BowItem@@SAPEAPEAXXZ
+?$vftable@ChestBoatItem@@SAPEAPEAXXZ
+?$vftable@CrossbowItem@@SAPEAPEAXXZ
+?$vftable@FishingRodItem@@SAPEAPEAXXZ
+?$vftable@HorseArmorItem@@SAPEAPEAXXZ
+?$vftable@LingeringPotionItem@@SAPEAPEAXXZ
+?$vftable@MapItem@@SAPEAPEAXXZ
+?$vftable@MinecartItem@@SAPEAPEAXXZ
+?$vftable@PotionItem@@SAPEAPEAXXZ
+?$vftable@SaplingBlockItem@@SAPEAPEAXXZ
+?$vftable@ShearsItem@@SAPEAPEAXXZ
+?$vftable@ShieldItem@@SAPEAPEAXXZ
+?$vftable@ShulkerBoxBlockItem@@SAPEAPEAXXZ
+?$vftable@SpyglassItem@@SAPEAPEAXXZ
 ?advanceTime@Timer@@QEAAXM@Z
