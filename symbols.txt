@@ -19,4 +19,6 @@
 ?$vftable@ShieldItem@@SAPEAPEAXXZ
 ?$vftable@ShulkerBoxBlockItem@@SAPEAPEAXXZ
 ?$vftable@SpyglassItem@@SAPEAPEAXXZ
+??0md5@Hash@Crypto@@QEAA@AEBV012@@Z
+??0md5@Hash@Crypto@@QEAA@XZ
 ?advanceTime@Timer@@QEAAXM@Z
