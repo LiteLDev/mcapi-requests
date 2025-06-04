@@ -1,5 +1,6 @@
 # last clear day 2025-05-31
 ?$canUse@HarvestFarmBlockGoal@@QEAA_NXZ
+?$handleEvent@ScriptServerNetworkEventHandler@@QEAA?AU?$GameplayHandlerResult@W4CoordinatorResult@@@@AEAUIncomingPacketEvent@@@Z
 ?$setItem@SimpleContainer@@QEAAXHAEBVItemStack@@@Z
 ??$set@H@SynchedActorDataEntityWrapper@@QEAAXGAEBH@Z
 ?createLevelDataFromLevelSettings@LevelDataHelper@@YA?AV?$UniqueOwnerPointer@VLevelData@@@Bedrock@@AEBVLevelSettings@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
