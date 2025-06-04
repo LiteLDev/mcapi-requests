@@ -1,16 +1,1 @@
-# last clear day 2025-05-31
-?$canUse@HarvestFarmBlockGoal@@QEAA_NXZ
-?$handleEvent@ScriptServerNetworkEventHandler@@QEAA?AU?$GameplayHandlerResult@W4CoordinatorResult@@@@AEAUIncomingPacketEvent@@@Z
-?$setItem@SimpleContainer@@QEAAXHAEBVItemStack@@@Z
-?$vftable@DefaultDataLoadHelper@@SAPEAPEAXXZ
-??$set@H@SynchedActorDataEntityWrapper@@QEAAXGAEBH@Z
-??0CauldronBlockActor@@QEAA@AEBVBlockPos@@@Z
-??0JukeboxBlockActor@@QEAA@AEBVBlockPos@@@Z
-??1ItemEnchants@@QEAA@XZ
-??1RandomizableBlockActorContainer@@UEAA@XZ
-?createLevelDataFromLevelSettings@LevelDataHelper@@YA?AV?$UniqueOwnerPointer@VLevelData@@@Bedrock@@AEBVLevelSettings@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@@Z
-?getAllEnchants@ItemEnchants@@QEBA?AV?$vector@VEnchantmentInstance@@V?$allocator@VEnchantmentInstance@@@std@@@std@@XZ
-?load@CauldronBlockActor@@UEAAXAEAVILevel@@AEBVCompoundTag@@AEAVDataLoadHelper@@@Z
-?load@JukeboxBlockActor@@UEAAXAEAVILevel@@AEBVCompoundTag@@AEAVDataLoadHelper@@@Z
-?save@CauldronBlockActor@@UEBA_NAEAVCompoundTag@@AEBVSaveContext@@@Z
-?setCustomColor@CauldronBlockActor@@QEAAXAEBVColor@mce@@@Z
+# last clear day 2025-06-04
