@@ -1,1 +1,3 @@
 # last clear day 2025-06-10
+??1BlockTryDestroyByPlayerEvent@@QEAA@XZ
+??1ExplosionStartedEvent@@QEAA@XZ
