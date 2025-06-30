@@ -1,2 +1,5 @@
 # last clear day 2025-06-23
 ?$canUse@LayEggGoal@@QEAA_NXZ
+??0Randomize@@QEAA@AEAVRandom@@@Z
+??1Randomize@@QEAA@XZ
+?evictAll@BeehiveBlockActor@@QEAAXAEAVBlockSource@@_N@Z
