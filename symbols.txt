@@ -5,4 +5,5 @@
 ??1Randomize@@QEAA@XZ
 ?_dropBook@LecternBlock@@QEBA_NAEAVPlayer@@AEBVBlockPos@@@Z
 ?evictAll@BeehiveBlockActor@@QEAAXAEAVBlockSource@@_N@Z
+?isPrecipitatingAt@Weather@@QEBA_NAEAVBlockSource@@AEBVBlockPos@@@Z
 ?openContainer@ContainerComponent@@QEAA_NAEAVActor@@AEAVPlayer@@@Z
