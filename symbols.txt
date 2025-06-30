@@ -1,5 +1,8 @@
 # last clear day 2025-06-23
 ?$canUse@LayEggGoal@@QEAA_NXZ
+?$onEvent@VanillaServerGameplayEventListener@@QEAA?AW4EventResult@@AEBUActorHurtEvent@@@Z
 ??0Randomize@@QEAA@AEAVRandom@@@Z
 ??1Randomize@@QEAA@XZ
+?_dropBook@LecternBlock@@QEBA_NAEAVPlayer@@AEBVBlockPos@@@Z
 ?evictAll@BeehiveBlockActor@@QEAAXAEAVBlockSource@@_N@Z
+?openContainer@ContainerComponent@@QEAA_NAEAVActor@@AEAVPlayer@@@Z
