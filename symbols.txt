@@ -1,9 +1,17 @@
 # last clear day 2025-06-30
 ?$onActorDied@OozingMobEffect@@QEBAXAEAVActor@@H@Z
 ?$onActorDied@WeavingMobEffect@@QEBAXAEAVActor@@H@Z
+?$onRedstoneUpdate@PistonBlock@@QEBAXAEAVBlockSource@@AEBVBlockPos@@H_N@Z
 ?$setupActorForTransfer@ActorDimensionTransferer@@QEAAXAEAVActor@@@Z
+?$vftable@BlockLegacy@@SAPEAPEAXXZ
+?$vftable@DetectorRailBlock@@SAPEAPEAXXZ
+?$vftable@DispenserBlock@@SAPEAPEAXXZ
+?$vftable@HopperBlock@@SAPEAPEAXXZ
+?$vftable@ObserverBlock@@SAPEAPEAXXZ
+?$vftable@PistonBlock@@SAPEAPEAXXZ
 ?$vftable@PowderSnowBlock@@SAPEAPEAXXZ
 ?$vftable@WeavingMobEffect@@SAPEAPEAXXZ
+??1PendingEntry@CircuitSceneGraph@@QEAA@XZ
 ?COMPONENT_TAG@DimensionTransitionComponent@@SAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?calculateMoveVelocity@RailMovementUtility@@SA?AVVec3@@AEBVBlock@@HM_NAEAV2@AEA_N3AEBV?$function@$$A6A_NAEAVVec3@@@Z@std@@@Z
 ?createPortal@PortalForcer@@QEAAAEBVPortalRecord@@AEBVActor@@H@Z
