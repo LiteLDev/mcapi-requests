@@ -1,1 +1,9 @@
 # last clear day 2025-06-30
+?$onActorDied@OozingMobEffect@@QEBAXAEAVActor@@H@Z
+?$onActorDied@WeavingMobEffect@@QEBAXAEAVActor@@H@Z
+?$setupActorForTransfer@ActorDimensionTransferer@@QEAAXAEAVActor@@@Z
+?$vftable@PowderSnowBlock@@SAPEAPEAXXZ
+?$vftable@WeavingMobEffect@@SAPEAPEAXXZ
+?COMPONENT_TAG@DimensionTransitionComponent@@SAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
+?createPortal@PortalForcer@@QEAAAEBVPortalRecord@@AEBVActor@@H@Z
+?requestPlayerChangeDimension@DimensionTransitionSystem@@SAXAEBVStrictEntityContext@@$$QEAVChangeDimensionRequest@@V?$ViewT@VStrictEntityContext@@VDimensionStateComponent@@UStateVectorComponent@@@@V?$EntityModifier@UPlayerChangeDimensionRequestComponent@@@@@Z
