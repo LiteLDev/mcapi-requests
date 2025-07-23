@@ -1,1 +1,2 @@
 # last clear day 2025-07-13
+?brush@BrushableBlockActor@@QEAA?AW4BrushingState@1@AEAVBlockSource@@AEBVBlockPos@@E@Z
