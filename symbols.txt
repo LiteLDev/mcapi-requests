@@ -1,5 +1,2 @@
 # last clear day 2025-07-23
-?$vftable@CampfireBlock@@SAPEAPEAXXZ
-?$vftable@CampfireBlockActor@@SAPEAPEAXXZ
-?dropAllItems@CampfireBlockActor@@QEAAXAEAVBlockSource@@@Z
-?tryLightFire@CampfireBlock@@SA_NAEAVBlockSource@@AEBVBlockPos@@PEAVActor@@@Z
+
