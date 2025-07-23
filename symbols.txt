@@ -1,13 +1,1 @@
-# last clear day 2025-07-13
-?$playerDimensionChangedEvent@PlayerDimensionTransferProxy@@QEAAXAEAVPlayer@@V?$AutomaticID@VDimension@@H@@1@Z
-?$postLoadItems_DEPRECATEDASKTYLAING@ItemStackRequestAction@@QEAAXAEAVBlockPalette@@_N@Z
-?$shouldCorrectMovement@ServerCorrectionPolicy@@QEAA?AUMovementCorrection@@AEAVEntityContext@@AEBVPlayerAuthInputPacket@@_KE_N@Z
-?$vftable@ItemStackRequestAction@@SAPEAPEAXXZ
-?$vftable@PlayerDimensionTransferProxy@@SAPEAPEAXXZ
-?$vftable@ServerNetworkEventListener@@SAPEAPEAXXZ
-?INVALID@PlayerMovementSettings@@SAAEBU1@XZ
-?_playerChangeDimension@PlayerDimensionTransferManager@@QEAA_NAEAVPlayer@@AEAVChangeDimensionRequest@@@Z
-?brush@BrushableBlockActor@@QEAA?AW4BrushingState@1@AEAVBlockSource@@AEBVBlockPos@@E@Z
-?getDefault@PlayerMovementSettings@@SA?AU1@XZ
-?setItemInUse@PlayerItemInUse@@QEAAXAEBVItemStack@@AEAVEntityContext@@HUPlayerInventorySlotData@@@Z
-?write@SerializedSkinImpl@@QEBAXAEAVBinaryStream@@@Z
+# last clear day 2025-07-23
