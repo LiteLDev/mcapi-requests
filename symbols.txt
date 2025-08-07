@@ -30,6 +30,7 @@
 ?$isFeatureChunk@StrongholdFeature@@QEAA_NAEBVBiomeSource@@AEAVRandom@@AEBVChunkPos@@IAEBVIPreliminarySurfaceProvider@@AEBVDimension@@@Z
 ?$isFeatureChunk@WoodlandMansionFeature@@QEAA_NAEBVBiomeSource@@AEAVRandom@@AEBVChunkPos@@IAEBVIPreliminarySurfaceProvider@@AEBVDimension@@@Z
 ?$isMovingBlock@MovingBlock@@QEBA_NXZ
+?$isReplayNeeded@ClientReplayStatePolicy@@QEBA_NW4AdvanceFrameResult@@@Z
 ?$isSecondaryPowered@ConsumerComponent@@QEBA_NXZ
 ?$stop@DragonDeathGoal@@QEAAXXZ
 ?$stop@DragonFlamingGoal@@QEAAXXZ
@@ -45,6 +46,7 @@
 ?$vftable@BastionFeature@@SAPEAPEAXXZ
 ?$vftable@BuriedTreasureFeature@@SAPEAPEAXXZ
 ?$vftable@CapacitorComponent@@SAPEAPEAXXZ
+?$vftable@ClientReplayStatePolicy@@SAPEAPEAXXZ
 ?$vftable@ComparatorCapacitor@@SAPEAPEAXXZ
 ?$vftable@ConsumerComponent@@SAPEAPEAXXZ
 ?$vftable@DirectionalProducerComponent@@SAPEAPEAXXZ
@@ -71,6 +73,7 @@
 ?$vftable@RedstoneTorchCapacitor@@SAPEAPEAXXZ
 ?$vftable@RepeaterCapacitor@@SAPEAPEAXXZ
 ?$vftable@RuinedPortalFeature@@SAPEAPEAXXZ
+?$vftable@ServerCorrectionPolicy@@SAPEAPEAXXZ
 ?$vftable@ShipwreckFeature@@SAPEAPEAXXZ
 ?$vftable@SidePoweredComponent@@SAPEAPEAXXZ
 ?$vftable@SignBlockActor@@SAPEAPEAXXZ
@@ -81,6 +84,9 @@
 ?$vftableForIDimension@TheEndDimension@@SAPEAPEAXXZ
 ??0CircuitTrackingInfo@@QEAA@XZ
 ?_checkIfStuck@MoveToBlockGoal@@QEAAXXZ
+?_handlePlayerAuthInputPacket@UpdateServerPlayerInputSystemImpl@@YAXAEBUStateVectorComponent@@AEAUActorHeadRotationComponent@@AEAUActorRotationComponent@@AEAUPlayerInputModeComponent@@AEAUPlayerInteractionModelComponent@@AEAUServerPlayerCurrentMovementComponent@@@Z
 ?_updateTextFromClient@SignBlockActor@@QEAAXAEBVCompoundTag@@AEBVBlockSource@@@Z
+?digestPlayerInputPacket@ServerMoveInputHandlerSystem@@SAXAEAUMoveInputComponent@@AEBVPlayerAuthInputPacket@@@Z
 ?findNewTarget@DragonStrafePlayerGoal@@QEAAXXZ
 ?onFallOn@MovingBlock@@QEBAXAEAVBlockEntityFallOnEvent@BlockEvents@@@Z
+?onPlayerAuthInputPacket@ServerPlayerInputSystem@@YA_NAEAUServerPlayerMovementComponent@@AEBVPlayerAuthInputPacket@@@Z
