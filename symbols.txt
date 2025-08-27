@@ -69,12 +69,15 @@
 ??0POIBlueprint@@QEAA@XZ
 ??1BlockComponentStorage@@QEAA@XZ
 ??1IRandom@@UEAA@XZ
+??1LegacyGoalDefinition@@QEAA@XZ
 ?CAPACITY@POIInstanceTags@@YAAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@XZ
 ?GOLEM_DEATH_PENALTY@StandingModifiers@Village@@SAAEBHXZ
+?GetStructureTemplate@StructureUtils@gametest@@YAPEAVStructureTemplate@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAVLevel@@@Z
 ?_removeAll@ScriptDebugDrawer@ScriptModuleDebugUtilities@@QEAAXXZ
 ?addAction@InventoryTransactionManager@@QEAAXAEBVInventoryAction@@_N@Z
 ?bind@ScriptDebugShapes@ScriptModuleDebugUtilities@@YAXAEAVModuleBindingBuilder@Scripting@@@Z
 ?calculateMoveSpeed@MoveControl@@QEAAMAEBVMoveControlComponent@@AEAVMob@@AEBVVec3@@M@Z
+?canSpreadIntoBlock@SculkUtils@@YA_NAEAVIBlockWorldGenAPI@@AEBVBlock@@AEBVBlockPos@@@Z
 ?forceBalanceTransaction@InventoryTransactionManager@@QEAAXXZ
 ?forkPositional@IRandom@@UEAA?AV?$unique_ptr@VIPositionalRandomFactory@@U?$default_delete@VIPositionalRandomFactory@@@std@@@std@@XZ
 ?getGrowthSpeed@CropUtils@@YAMAEBVBlockLegacy@@AEBVBlockSource@@AEBVBlockPos@@@Z
@@ -88,4 +91,5 @@
 ?save@POIInstance@@QEBAXAEAVCompoundTag@@@Z
 ?tick@ContainerRegistry@@QEAAXV?$function@$$A6AXAEAVPacket@@@Z@std@@@Z
 ?tick@Raid@@QEAAXUTick@@@Z
+?tryDispenseEquipment@DispensableItemUtils@@YA_NAEAVBlockSource@@AEAVContainer@@HVBlockPos@@W4EquipmentSlot@Legacy@SharedTypes@@_N@Z
 ?updateConnections@Rail@BaseRailBlock@@QEAAXH@Z
