@@ -65,6 +65,7 @@
 ??0CachedComponentData@@QEAA@AEBU0@@Z
 ??0DetectionRule@@QEAA@AEBU0@@Z
 ??0DynamicContainerManager@@QEAA@XZ
+??0MoveInputComponent@@QEAA@XZ
 ??0POIBlueprint@@QEAA@XZ
 ??1BlockComponentStorage@@QEAA@XZ
 ??1IRandom@@UEAA@XZ
