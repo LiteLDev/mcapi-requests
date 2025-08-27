@@ -1,1 +1,16 @@
 # last clear day 2025-08-07
+?$dtor@ScriptCircleShape@ScriptModuleDebugUtilities@@QEAAXXZ
+?$dtor@ScriptSphereShape@ScriptModuleDebugUtilities@@QEAAXXZ
+?$dtor@ScriptTextShape@ScriptModuleDebugUtilities@@QEAAXXZ
+?$populatePacketData@ScriptBoxShape@ScriptModuleDebugUtilities@@QEBAXAEAUPacketShapeData@2@@Z
+?$populatePacketData@ScriptLineShape@ScriptModuleDebugUtilities@@QEBAXAEAUPacketShapeData@2@@Z
+?$vftable@ScriptArrowShape@ScriptModuleDebugUtilities@@SAPEAPEAXXZ
+?$vftable@ScriptBoxShape@ScriptModuleDebugUtilities@@SAPEAPEAXXZ
+?$vftable@ScriptCircleShape@ScriptModuleDebugUtilities@@SAPEAPEAXXZ
+?$vftable@ScriptDebugShape@ScriptModuleDebugUtilities@@SAPEAPEAXXZ
+?$vftable@ScriptLineShape@ScriptModuleDebugUtilities@@SAPEAPEAXXZ
+?$vftable@ScriptSphereShape@ScriptModuleDebugUtilities@@SAPEAPEAXXZ
+?$vftable@ScriptTextShape@ScriptModuleDebugUtilities@@SAPEAPEAXXZ
+?_removeAll@ScriptDebugDrawer@ScriptModuleDebugUtilities@@QEAAXXZ
+?bind@ScriptDebugShapes@ScriptModuleDebugUtilities@@YAXAEAVModuleBindingBuilder@Scripting@@@Z
+?remove@ScriptDebugShape@ScriptModuleDebugUtilities@@QEAAXXZ
