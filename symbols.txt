@@ -1,2 +1,5 @@
 # last clear day 2025-10-02
 ??1ItemStackNetIdVariant@@QEAA@XZ
+?_executeTrigger@ActorDefinitionDescriptor@@CA_NAEAVActor@@AEBVActorDefinitionTrigger@@AEAV?$vector@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@$$CBV12@@std@@V?$allocator@U?$pair@$$CBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@$$CBV12@@std@@@2@@std@@AEBUVariantParameterList@@@Z
+?anyMatch@BlockDescriptor@@SA_NAEBV?$vector@VBlockDescriptor@@V?$allocator@VBlockDescriptor@@@std@@@std@@AEBVBlock@@@Z
+?executeTrigger@ActorDefinitionDescriptor@@SA_NAEAVActor@@AEBVActorDefinitionTrigger@@AEBUVariantParameterList@@@Z
