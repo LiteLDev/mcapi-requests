@@ -1,1 +1,4 @@
 # last clear day 2025-10-04
+?_registerFeature@FeatureToggles@@QEAAXW4FeatureOptionTabID@@W4FeatureOptionID@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@2_N1V?$function@$$A6AXAEAVOption@@@Z@5@V?$function@$$A6AXAEA_N@Z@5@@
+?isEnabled@FeatureToggles@@QEBA_NW4FeatureOptionID@@@Z
+```cpp
