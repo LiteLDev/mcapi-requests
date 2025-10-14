@@ -19,6 +19,7 @@
 ?_addSpawnRules@SpawnGroupRegistry@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEAVMobSpawnRules@@@Z
 ?_doFallingBlockNormalTickSystem@FallingBlockNormalTickSystem@@SAXAEBVStrictEntityContext@@AEAVActorOwnerComponent@@AEAVITickDelegate@@@Z
 ?_registerFeature@FeatureToggles@@QEAAXW4FeatureOptionTabID@@W4FeatureOptionID@@AEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@2_N1V?$function@$$A6AXAEAVOption@@@Z@5@V?$function@$$A6AXAEA_N@Z@5@@
+?dispatch@?$BlockEventPublishingExecutor@VBlockStepOffEvent@BlockEvents@@X@Detail@BlockEvents@@UEBAXAEAVBlockStepOffEvent@3@@Z
 ?isEnabled@FeatureToggles@@QEBA_NW4FeatureOptionID@@@Z
 ?isInstanceOf@ActorClassTree@@SA_NAEBVActor@@W4ActorType@@@Z
 ?setColor@ActorColor@@YAXAEAUSynchedActorDataComponent@@W4PaletteColor@Legacy@SharedTypes@@@Z
