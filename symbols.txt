@@ -4,11 +4,13 @@ $postLoadItems@ItemReleaseInventoryTransaction@@QEAAXAEAVBlockPalette@@_N@Z
 ?$containerContentChanged@HudContainerModel@@QEAAXH@Z
 ?$deserializeData@Description@@QEAAXUDeserializeDataParams@@@Z
 ?$dtor@AttributeData@@QEAAXXZ
+?$dtor@ChunkBuildOrderPolicyBase@@QEAAXXZ
 ?$dtor@ComponentInfo@InternalComponentRegistry@@QEAAXXZ
 ?$dtor@ContainerCloseListener@@QEAAXXZ
 ?$dtor@ContainerContentChangeListener@@QEAAXXZ
 ?$dtor@ContainerSizeChangeListener@@QEAAXXZ
 ?$dtor@ContainerWeakRef@@QEAAXXZ
+?$dtor@DimensionDefinitionGroup@@QEAAXXZ
 ?$dtor@GameCallbacks@@QEAAXXZ
 ?$dtor@GameSession@@QEAAXXZ
 ?$dtor@Impl@VanillaWorldSystems@@QEAAXXZ
@@ -37,6 +39,7 @@ $postLoadItems@ItemReleaseInventoryTransaction@@QEAAXAEAVBlockPalette@@_N@Z
 ?$tick@ExhaustionAttributeDelegate@@QEAAXAEAVAttributeInstance@@AEAUAttributeModificationContext@@@Z
 ?$tick@HungerAttributeDelegate@@QEAAXAEAVAttributeInstance@@AEAUAttributeModificationContext@@@Z
 ?$transferTickingArea@ActorDimensionTransferProxy@@QEBAXAEAVActor@@AEAVDimension@@@Z
+?$updateInfluences@ChunkBuildOrderPolicy@@QEAAXXZ
 ?$vftable@Actor@@SAPEAPEAXXZ
 ?$vftable@ActorDimensionTransferProxy@@SAPEAPEAXXZ
 ?$vftable@Amplifier@@SAPEAPEAXXZ
@@ -83,6 +86,7 @@ $postLoadItems@ItemReleaseInventoryTransaction@@QEAAXAEAVBlockPalette@@_N@Z
 ?ABSORPTION@SharedAmplifiers@@SAAEAV?$shared_ptr@VAmplifier@@@std@@XZ
 ?ABSORPTION@SharedBuffs@@SAAEAV?$shared_ptr@VAttributeBuff@@@std@@XZ
 ?XP_TRUNCATION_THRESHHOLDS@ExperienceConstants@@YAAEBV?$array@H$09@std@@XZ
+?_checkAndQueueBoolValue@ActorPropertyUtils@@YA_NAEBVPropertyGroup@@_KPEAVActorDefinitionDiffList@@_N@Z
 ?_initializeComponentDefinitions@ActorComponentFactory@@QEAAXAEBVExperiments@@@Z
 ?_markAux@DynamicContainerTracker@@QEAAXAEBVItemStack@@H@Z
 ?_resize@Rope@@QEAAXXZ
@@ -95,8 +99,11 @@ $postLoadItems@ItemReleaseInventoryTransaction@@QEAAXAEAVBlockPalette@@_N@Z
 ?canSpawnNaturally@SpawnChecks@@SA_NAEBVILevel@@@Z
 ?doKnockbackAttack@KnockbackRules@@YAXAEBUKnockbackAttackOptions@1@@Z
 ?forEachItemOnActor@ActorInventoryUtils@@YAXAEBVActor@@V?$function@$$A6AXAEBVItemStack@@@Z@std@@@Z
+?forEachKeyWithDimensionPrefix@DimensionDataSerializer@@QEAAXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@0AEAVLevelStorage@@AEBV?$function@$$A6AXAEBV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@AEBVCompoundTag@@@Z@3@@Z
+?getBool@PropertyComponent@@QEBA_N_K@Z
 ?getContactPoint@RopeAABB@@QEBA_NAEBVVec3@@MAEAUAABBContactPoint@@@Z
 ?getDirection@Direction@@SA?AW4Type@1@MM@Z
+?getMolangValue@PropertyContainer@@QEBA_N_KAEAUMolangScriptArg@@@Z
 ?getPassengerClosestTo@ActorRiding@@YA?AVStrictEntityContext@@AEBVVec3@@AEBUVehicleComponent@@AEBV?$ViewT@VStrictEntityContext@@$$CBUStateVectorComponent@@@@@Z
 ?getSyncInfo@ISynchedActorDataAdapter@@SAPEBU1@G@Z
 ?handleRegisterPlayers@BossComponent@@QEAAXAEAVActor@@@Z
@@ -111,6 +118,7 @@ $postLoadItems@ItemReleaseInventoryTransaction@@QEAAXAEAVBlockPalette@@_N@Z
 ?parseSpawnRulesData@SpawnGroupsLegacyParser@@YA?AUActorSpawnRuleData@@AEBVInput@Puv@@AEAVLogger@4@@Z
 ?postLoadItems@InventoryAction@@QEAAXAEAVBlockPalette@@_N@Z
 ?registerActorPositionPassenger@VehicleManagement@VanillaSystemsRegistration@@YAXAEAVEntitySystems@@AEBURegistrationOptions@2@@Z
+?registerDimensionTypes@VanillaDimensionFactory@@YAXAEAV?$OwnerPtrFactory@VDimension@@AEAVILevel@@AEAVScheduler@@@@@Z
 ?registerInputDependentTickFilterSystems@VanillaSystemsRegistration@@YAXAEAVEntitySystems@@@Z
 ?registerMappings@VanillaBuiltInEntities@@YAXAEBVBaseGameVersion@@AEBVExperiments@@@Z
 ?registerPowerJumpSystems@Jump@VanillaSystemsRegistration@@YAXAEAVEntitySystems@@@Z
