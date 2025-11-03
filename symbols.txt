@@ -44,6 +44,7 @@ $postLoadItems@ItemReleaseInventoryTransaction@@QEAAXAEAVBlockPalette@@_N@Z
 ?$vftable@ActorDimensionTransferProxy@@SAPEAPEAXXZ
 ?$vftable@Amplifier@@SAPEAPEAXXZ
 ?$vftable@Animal@@SAPEAPEAXXZ
+?$vftable@BlockRandomTickEvent@BlockEvents@@SAPEAPEAXXZ)
 ?$vftable@Container@@SAPEAPEAXXZ
 ?$vftable@ContainerCloseListener@@SAPEAPEAXXZ
 ?$vftable@ContainerContentChangeListener@@SAPEAPEAXXZ
