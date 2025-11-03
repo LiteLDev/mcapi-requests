@@ -1,5 +1,5 @@
 # last clear day 2025-10-14
-$postLoadItems@ItemReleaseInventoryTransaction@@QEAAXAEAVBlockPalette@@_N@Z
+?$postLoadItems@ItemReleaseInventoryTransaction@@QEAAXAEAVBlockPalette@@_N@Z
 ?$_getContainerOffset@PlayerUIContainerModel@@QEBAHXZ
 ?$containerContentChanged@HudContainerModel@@QEAAXH@Z
 ?$deserializeData@Description@@QEAAXUDeserializeDataParams@@@Z
