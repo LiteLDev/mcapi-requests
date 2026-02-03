@@ -177,7 +177,15 @@
 ?breakNearbyBlocks@BreakBlocksComponent@@QEAAXAEAVActor@@@Z
 ?burst@WindBurstUtility@@YAXAEAVBlockSource@@PEAVActor@@AEBVVec3@@MM@Z
 ?explode@ExplodeComponent@@QEAAXAEAVActor@@AEBVVec3@@@Z
+?getDataDrivenRenderer@ActorRenderDispatcher@@QEBA?AV?$shared_ptr@VDataDrivenRenderer@@@std@@AEBVHashedString@@@Z
+?getRenderer@ActorRenderDispatcher@@QEBA?AV?$shared_ptr@VActorRenderer@@@std@@AEBVActor@@@Z
+?getRenderer@ActorRenderDispatcher@@QEBA?AV?$shared_ptr@VActorRenderer@@@std@@AEBVHashedString@@@Z
 ?initClient@ComponentItem@@UEAA?AULoadResultWithTiming@PuvLoadData@@AEBVValue@Json@@AEBVSemVersion@@W4JsonBetaState@@AEAVIPackLoadContext@@UItemIconInfoFactory@@@Z
 ?initServer@ComponentItem@@UEAA?AULoadResultWithTiming@PuvLoadData@@AEBVValue@Json@@AEBVSemVersion@@AEAVIPackLoadContext@@W4JsonBetaState@@@Z
 ?notifyTrade@LegacyTradeableComponent@@QEAAXAEAVActor@@HH@Z
 ?queueForMainThread@EnableQueueForMainThread@Threading@Bedrock@@QEAA?AV?$Async@X@23@$$QEAV?$function@$$A6AXXZ@std@@@Z
+?render@ActorRenderDispatcher@@QEAAXAEAVBaseActorRenderContext@@AEAVActor@@AEBVVec3@@2AEBVVec2@@_N@Z
+?render@ActorRenderDispatcher@@QEAAXAEAVBaseActorRenderContext@@AEAVActor@@AEBVVec3@@AEBVVec2@@_N@Z
+?render@ActorRenderDispatcher@@QEAAXAEAVBaseActorRenderContext@@AEAVActor@@_N@Z
+?renderModel@DataDrivenRenderer@@QEAAXAEAVBaseActorRenderContext@@AEAUActorRenderData@@AEAVModel@@@Z
+?setupModel@DataDrivenRenderer@@QEAAXAEAUActorRenderData@@PEAVBaseActorRenderContext@@M@Z
