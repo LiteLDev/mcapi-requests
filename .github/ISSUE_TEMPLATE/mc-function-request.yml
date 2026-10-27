@@ -1,0 +1,35 @@
+name: MC function(MCAPI) request
+description: A request for some MC functions
+title: "[Function] Request MC function for <your-mod-name>"
+labels: ["enhancement"]
+body:
+  - type: textarea
+    attributes:
+      label: The link to your mod's homepage(GitHub repository etc.)
+      description: The GitHub repository or website of your mod.
+      placeholder: "e.g. https://github.com/LiteLDev/LeviLamina"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Symbols or class names
+      description: "The symbols provided by the error message during linking. One symbol per line.\nOr class names for which you want to add the entire class's functions to the whitelist."
+      placeholder: "e.g.\n?$exmapleMethod@ExampleClass@@QEAAXH@Z\n?$anotherMethod@AnotherClass@@QEAA_NXZ"
+      render: text
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Justification
+      description: Explain what mods are you working on and why you need these functions.
+      placeholder: |
+        e.g. I'm working on a mod to give players starter pack on their first join. I need to access their UUID to...
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Additional context
+      description: Add any other context or screenshots about the mc class member request here.

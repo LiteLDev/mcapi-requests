@@ -1,19 +1,28 @@
 name: MC class member request
-description: Requests for completion of certain minecraft class member variables
-title: "[Request]: "
+description: Requests for completion of certain Minecraft class member variables
+title: "[Member]: Request MC member for <your-mod-name>"
 labels: ["enhancement"]
 body:
   - type: textarea
     attributes:
-      label: Please list all requested class names.
-      description: Names of all requested classes.
+      label: The link to your mod's homepage(GitHub repository etc.)
+      description: The GitHub repository or website of your mod.
+      placeholder: "e.g. https://github.com/LiteLDev/LeviLamina"
     validations:
       required: true
 
   - type: textarea
     attributes:
-      label: Do you have a good reason for us to complement these member variables of these mc class? Please write it out.
-      description: Sufficient reason to convince us to complement the member variables of these mc classes.
+      label: Class names
+      description: Please list all requested class names.
+      placeholder: "e.g.\nActor\nPlayer"
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: Do you have a good reason for us to complement these member variables of these MC class? Please write it out.
+      description: Sufficient reason to convince us to complement the member variables of these MC classes.
     validations:
       required: true
 
