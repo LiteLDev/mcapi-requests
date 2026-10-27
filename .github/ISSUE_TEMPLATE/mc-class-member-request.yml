@@ -1,7 +1,7 @@
 name: MC class member request
 description: Requests for completion of certain Minecraft class member variables
-title: "[Member]: Request MC member for <your-mod-name>"
-labels: ["enhancement"]
+title: "Request MC member for <your-mod-name>"
+labels: ["member"]
 body:
   - type: textarea
     attributes:

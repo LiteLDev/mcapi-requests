@@ -1,7 +1,7 @@
 name: MC function(MCAPI) request
 description: A request for some MC functions
-title: "[Function] Request MC function for <your-mod-name>"
-labels: ["enhancement"]
+title: "Request MC function for <your-mod-name>"
+labels: ["function"]
 body:
   - type: textarea
     attributes:
