@@ -1,0 +1,46 @@
+name: Check Request
+
+on:
+  issues:
+    types:
+      - opened
+      - edited
+
+concurrency:
+  group: check-request-${{ github.event.issue.number }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: LiteLDev/LeviLamina
+          path: LeviLamina
+          sparse-checkout: |
+            src/mc
+            src-client/mc
+            src-server/mc
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install tiktoken
+
+      - id: check
+        run: python .github/scripts/check_request.py LeviLamina report.md
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+
+      - if: always() && hashFiles('report.md') != ''
+        run: gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --edit-last --create-if-none --body-file report.md
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}

@@ -1,0 +1,26 @@
+name: Request
+title: "Request symbols for <your-mod-name>"
+body:
+  - type: input
+    id: mod
+    attributes:
+      label: Mod
+    validations:
+      required: true
+
+  - type: textarea
+    id: classes
+    attributes:
+      label: Classes
+
+  - type: textarea
+    id: symbols
+    attributes:
+      label: Symbols
+
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justification
+    validations:
+      required: true
