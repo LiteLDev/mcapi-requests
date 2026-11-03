@@ -1,4 +1,5 @@
 name: Request
+description: Request Minecraft classes or symbols for LeviLamina
 title: "Request symbols for <your-mod-name>"
 body:
   - type: input
