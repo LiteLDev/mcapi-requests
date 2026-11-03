@@ -6,6 +6,29 @@ body:
     id: mod
     attributes:
       label: Mod
+      description: Link to your mod's homepage or repository.
+      placeholder: https://github.com/LiteLDev/LeviLamina
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      description: The platform your mod targets.
+      options:
+        - Server for Windows
+        - Client for Windows
+        - Client for Android
+    validations:
+      required: true
+
+  - type: textarea
+    id: justification
+    attributes:
+      label: Justification
+      description: What your mod does and why it needs these. At most 200 tokens.
+      placeholder: I'm making a mod that gives players a starter pack on their first join, so I need...
     validations:
       required: true
 
@@ -13,15 +36,16 @@ body:
     id: classes
     attributes:
       label: Classes
+      description: Classes whose member variables you need. One per line.
+      placeholder: |
+        Player
+        Actor::BuiltInComponents
 
   - type: textarea
     id: symbols
     attributes:
       label: Symbols
-
-  - type: textarea
-    id: justification
-    attributes:
-      label: Justification
-    validations:
-      required: true
+      description: Unresolved symbols from the linker error. One per line.
+      placeholder: |
+        ?getPosition@Actor@@QEBAAEBVVec3@@XZ
+        ?tick@Player@@UEAAXXZ

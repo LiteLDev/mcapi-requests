@@ -16,7 +16,13 @@ from pathlib import Path
 
 from msvc_demangle import DemangleError, Symbol, demangle
 
-HEADER_DIRS = ("src/mc", "src-client/mc", "src-server/mc")
+# Platform -> (header directories, platform macro). LeviLamina headers only describe Windows,
+# so requests for other platforms can't be checked against them.
+PLATFORMS = {
+    "Server for Windows": (("src/mc", "src-server/mc"), "LL_PLAT_S"),
+    "Client for Windows": (("src/mc", "src-client/mc"), "LL_PLAT_C"),
+    "Client for Android": None,
+}
 MAX_JUSTIFICATION_TOKENS = 200
 IMPLEMENTED_MACROS = {"MCAPI", "MCFOLD", "MCTAPI"}
 NOT_IMPLEMENTED_MACRO = "MCNAPI"
@@ -212,9 +218,40 @@ def parse_decl(stmt: str, file: str) -> Decl | None:
     )
 
 
-def index_file(path: Path, rel: str, index: HeaderIndex) -> None:
+def select_platform(text: str, macro: str) -> str:
+    """Blanks out #ifdef LL_PLAT_S / LL_PLAT_C branches that don't belong to the platform."""
+    out = []
+    stack: list[tuple[bool, bool | None]] = []  # (enclosing active, condition or None if unknown)
+    active = True
+    for line in text.split("\n"):
+        m = re.match(r"\s*#\s*(ifdef|ifndef|if|elif|else|endif)\b(.*)", line)
+        if m:
+            directive, arg = m.group(1), m.group(2).strip()
+            if directive in ("ifdef", "ifndef", "if"):
+                cond = None
+                pm = re.fullmatch(r"(defined\s*\(?\s*)?(LL_PLAT_[SC])\s*\)?", arg)
+                if pm and (directive != "if" or pm.group(1)):
+                    cond = (pm.group(2) == macro) != (directive == "ifndef")
+                stack.append((active, cond))
+                active = active and cond is not False
+            elif directive in ("else", "elif") and stack:
+                parent, cond = stack[-1]
+                if directive == "elif":
+                    stack[-1] = (parent, None)
+                    cond = None
+                active = parent and (cond is None or not cond)
+            elif directive == "endif" and stack:
+                active = stack.pop()[0]
+            out.append("")
+            continue
+        out.append(line if active else "")
+    return "\n".join(out)
+
+
+def index_file(path: Path, rel: str, index: HeaderIndex, macro: str) -> None:
     text = path.read_text(encoding="utf-8", errors="replace")
     text = COMMENT_RE.sub(" ", text)
+    text = select_platform(text, macro)
     text = PREPROCESSOR_RE.sub(" ", text)
 
     # Each stack entry: ("ns", name) | ("class", full name) | ("anon", None) | ("opaque", None)
@@ -294,14 +331,15 @@ def index_file(path: Path, rel: str, index: HeaderIndex) -> None:
             index.decls[cur].append(decl)
 
 
-def build_index(root: Path) -> HeaderIndex:
+def build_index(root: Path, platform: str) -> HeaderIndex:
+    dirs, macro = PLATFORMS[platform]
     index = HeaderIndex()
-    for d in HEADER_DIRS:
+    for d in dirs:
         base = root / d
         if not base.is_dir():
             continue
         for path in sorted(base.rglob("*.h")):
-            index_file(path, path.relative_to(root).as_posix(), index)
+            index_file(path, path.relative_to(root).as_posix(), index, macro)
     return index
 
 
@@ -423,12 +461,15 @@ def main() -> int:
     fields = parse_issue(os.environ.get("ISSUE_BODY", ""))
     errors: list[str] = []
 
-    missing = [f for f in ("Mod", "Classes", "Symbols", "Justification") if f not in fields]
+    missing = [f for f in ("Mod", "Platform", "Classes", "Symbols", "Justification") if f not in fields]
     if missing:
         errors.append(f"The issue was not created from the Request template (missing {', '.join(missing)}).")
     else:
         if not fields["Mod"]:
             errors.append("**Mod** is required.")
+        platform = fields["Platform"]
+        if platform not in PLATFORMS:
+            errors.append(f"**Platform** must be one of {', '.join(PLATFORMS)}.")
         justification = fields["Justification"]
         if not justification:
             errors.append("**Justification** is required.")
@@ -442,8 +483,8 @@ def main() -> int:
         symbols = field_lines(fields["Symbols"])
         if not classes and not symbols:
             errors.append("Request at least one class or symbol.")
-        if classes or symbols:
-            index = build_index(root)
+        if (classes or symbols) and PLATFORMS.get(platform):
+            index = build_index(root, platform)
             for line in classes:
                 if err := check_class(line, index):
                     errors.append("**Classes** " + err)
@@ -456,6 +497,8 @@ def main() -> int:
         report += "\n".join(f"- {e}" for e in errors) + "\n"
     else:
         report = "### ✅ Request check passed\n"
+        if PLATFORMS.get(fields["Platform"]) is None:
+            report += "\nClasses and symbols can't be checked automatically for this platform.\n"
     report_path.write_text(report, encoding="utf-8")
     print(report)
     return 1 if errors else 0
