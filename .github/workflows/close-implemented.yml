@@ -1,0 +1,35 @@
+name: Close Implemented Requests
+
+on:
+  schedule:
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: close-implemented
+
+jobs:
+  close:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/checkout@v4
+        with:
+          repository: LiteLDev/LeviLamina
+          path: LeviLamina
+          sparse-checkout: |
+            src/mc
+            src-client/mc
+            src-server/mc
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: python .github/scripts/close_implemented.py LeviLamina
+        env:
+          GH_TOKEN: ${{ github.token }}

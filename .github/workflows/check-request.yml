@@ -38,9 +38,30 @@ jobs:
         run: python .github/scripts/check_request.py LeviLamina report.md
         env:
           ISSUE_BODY: ${{ github.event.issue.body }}
+          ISSUE_TITLE: ${{ github.event.issue.title }}
+          GH_TOKEN: ${{ github.token }}
 
       - if: always() && hashFiles('report.md') != ''
         run: gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --edit-last --create-if-none --body-file report.md
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+
+      - name: Close issue if the check failed
+        if: always() && steps.check.outcome == 'failure' && hashFiles('report.md') != ''
+        run: gh issue close "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --reason "not planned"
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+
+      - name: Reopen issue if it was auto-closed and now passes
+        if: always() && steps.check.outcome == 'success' && github.event.action == 'edited'
+        run: |
+          closer=$(gh api "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/events" --paginate \
+            --jq '[.[] | select(.event == "closed")] | last | .actor.login // empty')
+          if [ "$closer" = "github-actions[bot]" ]; then
+            gh issue reopen "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY"
+          fi
         env:
           GH_TOKEN: ${{ github.token }}
           ISSUE_NUMBER: ${{ github.event.issue.number }}

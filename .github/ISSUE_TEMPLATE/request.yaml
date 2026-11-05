@@ -6,7 +6,9 @@ body:
     id: mod
     attributes:
       label: Mod
-      description: Link to your mod's homepage or repository.
+      description: >-
+        Your mod's public GitHub repository, as `https://github.com/<owner>/<repo>`.
+        Use its current URL, not an old one that redirects. Its name, description or README must mention the mod name in the issue title.
       placeholder: https://github.com/LiteLDev/LeviLamina
     validations:
       required: true

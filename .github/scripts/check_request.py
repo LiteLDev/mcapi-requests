@@ -7,9 +7,12 @@ Exits with 1 when the request is invalid.
 
 from __future__ import annotations
 
+import json
 import os
 import re
 import sys
+import urllib.error
+import urllib.request
 from collections import defaultdict
 from dataclasses import dataclass, field
 from pathlib import Path
@@ -24,6 +27,10 @@ PLATFORMS = {
     "Client for Android": None,
 }
 MAX_JUSTIFICATION_TOKENS = 200
+TITLE_PREFIX = "Request symbols for"
+GITHUB_REPO_RE = re.compile(r"https://github\.com/(?P<owner>[A-Za-z0-9-]+)/(?P<repo>[A-Za-z0-9._-]+?)/?")
+MOD_URL_TIMEOUT = 15
+MOD_URL_MAX_BYTES = 2_000_000
 IMPLEMENTED_MACROS = {"MCAPI", "MCFOLD", "MCTAPI"}
 NOT_IMPLEMENTED_MACRO = "MCNAPI"
 
@@ -109,6 +116,12 @@ class HeaderIndex:
     scopes: set[str] = field(default_factory=set)
     classes: dict[str, bool] = field(default_factory=dict)  # full name -> has unknown members
     decls: dict[str, list[Decl]] = field(default_factory=lambda: defaultdict(list))
+
+
+@dataclass
+class Problem:
+    message: str
+    implemented: bool = False  # the requested item is already available in LeviLamina
 
 
 COMMENT_RE = re.compile(r"//[^\n]*|/\*.*?\*/", re.S)
@@ -386,14 +399,14 @@ def count_tokens(text: str) -> int:
     return len(tiktoken.get_encoding("o200k_base").encode(text))
 
 
-def check_class(line: str, index: HeaderIndex) -> str | None:
+def check_class(line: str, index: HeaderIndex) -> Problem | None:
     name = canon(re.sub(r"^\s*(?:class|struct|union)\s+", "", line))
     if name not in index.classes:
         candidates = sorted(c for c in index.classes if c.rsplit("::", 1)[-1] == name.rsplit("::", 1)[-1])
         hint = f" Did you mean {', '.join(f'`{c}`' for c in candidates[:5])}?" if candidates else ""
-        return f"`{line}`: no definition of this class was found in LeviLamina headers.{hint}"
+        return Problem(f"`{line}`: no definition of this class was found in LeviLamina headers.{hint}")
     if not index.classes[name]:
-        return f"`{line}`: all member variables of this class are already available."
+        return Problem(f"`{line}`: all member variables of this class are already available.", implemented=True)
     return None
 
 
@@ -421,25 +434,25 @@ def score(decl: Decl, params: list[str]) -> int:
     return s
 
 
-def check_symbol(line: str, index: HeaderIndex) -> str | None:
+def check_symbol(line: str, index: HeaderIndex) -> Problem | None:
     symbol = line[len("__imp_") :] if line.startswith("__imp_") else line
     if not symbol.startswith("?"):
-        return f"`{line}`: not an MSVC mangled symbol. Paste the symbol from the linker error, one per line."
+        return Problem(f"`{line}`: not an MSVC mangled symbol. Paste the symbol from the linker error, one per line.")
     try:
         sym = demangle(symbol)
     except DemangleError as e:
-        return f"`{line}`: failed to demangle this symbol ({e})."
+        return Problem(f"`{line}`: failed to demangle this symbol ({e}).")
     scope = "::".join(sym.scope)
     display = "::".join([*sym.scope, sym.name])
     if scope and scope not in index.scopes:
         alt = canon(strip_template_args(scope))
         if alt not in index.scopes:
-            return f"`{line}`: `{scope}` is not declared in LeviLamina headers, so it can't be made an MCAPI."
+            return Problem(f"`{line}`: `{scope}` is not declared in LeviLamina headers, so it can't be made an MCAPI.")
         scope = alt
     names = candidate_names(sym)
     decls = [d for d in index.decls.get(scope, []) if strip_template_args(d.name) in names]
     if not decls:
-        return f"`{line}`: `{display}` is not declared in LeviLamina headers, so it can't be made an MCAPI."
+        return Problem(f"`{line}`: `{display}` is not declared in LeviLamina headers, so it can't be made an MCAPI.")
     params = [canon(p) for p in sym.params]
     if sym.kind == "function":
         matches = [d for d in decls if len(d.params) == len(params) and d.const == sym.const]
@@ -448,12 +461,66 @@ def check_symbol(line: str, index: HeaderIndex) -> str | None:
     else:
         matches = [d for d in decls if not d.params]
     if not matches:
-        return f"`{line}`: no declaration of `{display}` in LeviLamina headers matches this signature."
+        return Problem(f"`{line}`: no declaration of `{display}` in LeviLamina headers matches this signature.")
     best = max(score(d, params) for d in matches)
     best_matches = [d for d in matches if score(d, params) == best]
     if any(d.macro == NOT_IMPLEMENTED_MACRO for d in best_matches):
         return None
-    return f"`{line}`: `{display}` is already an MCAPI in LeviLamina (`{best_matches[0].file}`)."
+    return Problem(f"`{line}`: `{display}` is already an MCAPI in LeviLamina (`{best_matches[0].file}`).", implemented=True)
+
+
+def mod_name_from_title(title: str) -> str | None:
+    name = re.sub(rf"^\s*{TITLE_PREFIX}\s*", "", title, flags=re.IGNORECASE).strip()
+    if not name or name == "<your-mod-name>":
+        return None
+    return name
+
+
+def squash(text: str) -> str:
+    """Lowercase alphanumerics only, so `My Mod`, `my-mod` and `MyMod` compare equal."""
+    return re.sub(r"[\W_]+", "", text.lower())
+
+
+def github_api(path: str, accept: str = "application/vnd.github+json") -> tuple[str, str]:
+    """GETs a GitHub API path, following redirects. Returns the final URL and the response body."""
+    headers = {"Accept": accept, "User-Agent": "mcapi-requests-checker"}
+    if token := os.environ.get("GH_TOKEN"):
+        headers["Authorization"] = f"Bearer {token}"
+    req = urllib.request.Request(f"https://api.github.com/{path}", headers=headers)
+    with urllib.request.urlopen(req, timeout=MOD_URL_TIMEOUT) as resp:
+        return resp.geturl(), resp.read(MOD_URL_MAX_BYTES).decode("utf-8", "replace")
+
+
+def check_mod_url(url: str, name: str | None) -> str | None:
+    """Checks that the mod URL is a public GitHub repository under its current name that mentions the mod."""
+    m = GITHUB_REPO_RE.fullmatch(url.strip())
+    if not m:
+        return f"**Mod** `{url}` must be a GitHub repository URL like `https://github.com/<owner>/<repo>`."
+    full_name = f"{m['owner']}/{m['repo']}"
+    try:
+        _, content = github_api(f"repos/{full_name}")
+        repo = json.loads(content)
+    except urllib.error.HTTPError as e:
+        if e.code == 404:
+            return f"**Mod** `{url}` is not a public GitHub repository."
+        return f"**Mod** `{url}` could not be checked (HTTP {e.code})."
+    except (urllib.error.URLError, OSError, ValueError) as e:
+        return f"**Mod** `{url}` could not be checked ({e})."
+    if repo["full_name"] != full_name:
+        return f"**Mod** `{url}` redirects to `https://github.com/{repo['full_name']}`; link to that URL instead."
+    if name is None:
+        return "The issue title must be `Request symbols for <your mod name>` with the real mod name."
+    text = f"{repo['name']} {repo.get('description') or ''}"
+    try:
+        text += github_api(f"repos/{full_name}/readme", "application/vnd.github.raw+json")[1]
+    except urllib.error.HTTPError as e:
+        if e.code != 404:
+            return f"**Mod** `{url}` could not be checked (HTTP {e.code})."
+    except (urllib.error.URLError, OSError) as e:
+        return f"**Mod** `{url}` could not be checked ({e})."
+    if squash(name) not in squash(text):
+        return f"**Mod** `{url}` does not mention the mod name `{name}` in its name, description or README."
+    return None
 
 
 def main() -> int:
@@ -467,6 +534,8 @@ def main() -> int:
     else:
         if not fields["Mod"]:
             errors.append("**Mod** is required.")
+        elif err := check_mod_url(fields["Mod"], mod_name_from_title(os.environ.get("ISSUE_TITLE", ""))):
+            errors.append(err)
         platform = fields["Platform"]
         if platform not in PLATFORMS:
             errors.append(f"**Platform** must be one of {', '.join(PLATFORMS)}.")
@@ -487,10 +556,10 @@ def main() -> int:
             index = build_index(root, platform)
             for line in classes:
                 if err := check_class(line, index):
-                    errors.append("**Classes** " + err)
+                    errors.append("**Classes** " + err.message)
             for line in symbols:
                 if err := check_symbol(line, index):
-                    errors.append("**Symbols** " + err)
+                    errors.append("**Symbols** " + err.message)
 
     if errors:
         report = "### ❌ Request check failed\n\nPlease edit the issue to fix the following:\n\n"
