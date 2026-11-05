@@ -7,6 +7,7 @@ Exits with 1 when the request is invalid.
 
 from __future__ import annotations
 
+import base64
 import json
 import os
 import re
@@ -27,6 +28,8 @@ PLATFORMS = {
     "Client for Android": None,
 }
 MAX_JUSTIFICATION_TOKENS = 200
+MAX_REQUEST_LINES = 64
+MAX_REPORTED_PROBLEMS = 5
 TITLE_PREFIX = "Request symbols for"
 GITHUB_REPO_RE = re.compile(r"https://github\.com/(?P<owner>[A-Za-z0-9-]+)/(?P<repo>[A-Za-z0-9._-]+?)/?")
 MOD_URL_TIMEOUT = 15
@@ -492,7 +495,7 @@ def github_api(path: str, accept: str = "application/vnd.github+json") -> tuple[
 
 
 def check_mod_url(url: str, name: str | None) -> str | None:
-    """Checks that the mod URL is a public GitHub repository under its current name that mentions the mod."""
+    """Checks that the mod URL is a public GitHub repository under its current name whose README.md names the mod."""
     m = GITHUB_REPO_RE.fullmatch(url.strip())
     if not m:
         return f"**Mod** `{url}` must be a GitHub repository URL like `https://github.com/<owner>/<repo>`."
@@ -510,16 +513,22 @@ def check_mod_url(url: str, name: str | None) -> str | None:
         return f"**Mod** `{url}` redirects to `https://github.com/{repo['full_name']}`; link to that URL instead."
     if name is None:
         return "The issue title must be `Request symbols for <your mod name>` with the real mod name."
-    text = f"{repo['name']} {repo.get('description') or ''}"
+    no_readme = f"**Mod** `{url}` must have a `README.md` in the root of its default branch."
     try:
-        text += github_api(f"repos/{full_name}/readme", "application/vnd.github.raw+json")[1]
+        readme = json.loads(github_api(f"repos/{full_name}/readme")[1])
     except urllib.error.HTTPError as e:
-        if e.code != 404:
-            return f"**Mod** `{url}` could not be checked (HTTP {e.code})."
-    except (urllib.error.URLError, OSError) as e:
+        # Empty repositories have no README either.
+        if e.code == 404:
+            return no_readme
+        return f"**Mod** `{url}` could not be checked (HTTP {e.code})."
+    except (urllib.error.URLError, OSError, ValueError) as e:
         return f"**Mod** `{url}` could not be checked ({e})."
+    # The readme endpoint also finds README.rst, docs/README.md, etc.
+    if readme.get("path", "").lower() != "readme.md":
+        return no_readme
+    text = base64.b64decode(readme.get("content", "")).decode("utf-8", "replace")
     if squash(name) not in squash(text):
-        return f"**Mod** `{url}` does not mention the mod name `{name}` in its name, description or README."
+        return f"**Mod** `{url}` does not mention the mod name `{name}` in its `README.md`."
     return None
 
 
@@ -552,7 +561,12 @@ def main() -> int:
         symbols = field_lines(fields["Symbols"])
         if not classes and not symbols:
             errors.append("Request at least one class or symbol.")
-        if (classes or symbols) and PLATFORMS.get(platform):
+        elif len(classes) + len(symbols) > MAX_REQUEST_LINES:
+            errors.append(
+                f"**Classes** and **Symbols** have {len(classes) + len(symbols)} lines in total; "
+                f"request at most {MAX_REQUEST_LINES} at a time."
+            )
+        elif PLATFORMS.get(platform):
             index = build_index(root, platform)
             for line in classes:
                 if err := check_class(line, index):
@@ -563,7 +577,9 @@ def main() -> int:
 
     if errors:
         report = "### ❌ Request check failed\n\nPlease edit the issue to fix the following:\n\n"
-        report += "\n".join(f"- {e}" for e in errors) + "\n"
+        report += "\n".join(f"- {e}" for e in errors[:MAX_REPORTED_PROBLEMS]) + "\n"
+        if len(errors) > MAX_REPORTED_PROBLEMS:
+            report += f"\nOnly the first {MAX_REPORTED_PROBLEMS} of {len(errors)} problems are shown.\n"
     else:
         report = "### ✅ Request check passed\n"
         if PLATFORMS.get(fields["Platform"]) is None:

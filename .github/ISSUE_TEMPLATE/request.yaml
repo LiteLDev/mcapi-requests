@@ -8,7 +8,7 @@ body:
       label: Mod
       description: >-
         Your mod's public GitHub repository, as `https://github.com/<owner>/<repo>`.
-        Use its current URL, not an old one that redirects. Its name, description or README must mention the mod name in the issue title.
+        Use its current URL, not an old one that redirects. It must have a `README.md` that mentions the mod name in the issue title.
       placeholder: https://github.com/LiteLDev/LeviLamina
     validations:
       required: true
@@ -38,7 +38,7 @@ body:
     id: classes
     attributes:
       label: Classes
-      description: Classes whose member variables you need. One per line.
+      description: Classes whose member variables you need. One per line; at most 64 classes and symbols in total.
       placeholder: |
         Player
         Actor::BuiltInComponents
@@ -47,7 +47,7 @@ body:
     id: symbols
     attributes:
       label: Symbols
-      description: Unresolved symbols from the linker error. One per line.
+      description: Unresolved symbols from the linker error. One per line; at most 64 classes and symbols in total.
       placeholder: |
         ?getPosition@Actor@@QEBAAEBVVec3@@XZ
         ?tick@Player@@UEAAXXZ
