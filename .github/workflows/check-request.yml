@@ -5,9 +5,15 @@ on:
     types:
       - opened
       - edited
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: Issue number to check
+        required: true
+        type: number
 
 concurrency:
-  group: check-request-${{ github.event.issue.number }}
+  group: check-request-${{ github.event.issue.number || inputs.issue }}
   cancel-in-progress: true
 
 jobs:
@@ -16,6 +22,9 @@ jobs:
     permissions:
       contents: read
       issues: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ISSUE_NUMBER: ${{ github.event.issue.number || inputs.issue }}
     steps:
       - uses: actions/checkout@v4
 
@@ -34,34 +43,35 @@ jobs:
 
       - run: pip install tiktoken
 
+      - id: issue
+        run: |
+          gh issue view "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --json title,body > issue.json
+          delim="EOF_$(openssl rand -hex 16)"
+          {
+            echo "title=$(jq -r .title issue.json)"
+            echo "body<<$delim"
+            jq -r .body issue.json
+            echo "$delim"
+          } >> "$GITHUB_OUTPUT"
+
       - id: check
         run: python .github/scripts/check_request.py LeviLamina report.md
         env:
-          ISSUE_BODY: ${{ github.event.issue.body }}
-          ISSUE_TITLE: ${{ github.event.issue.title }}
-          GH_TOKEN: ${{ github.token }}
+          ISSUE_BODY: ${{ steps.issue.outputs.body }}
+          ISSUE_TITLE: ${{ steps.issue.outputs.title }}
 
       - if: always() && hashFiles('report.md') != ''
         run: gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --edit-last --create-if-none --body-file report.md
-        env:
-          GH_TOKEN: ${{ github.token }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
 
       - name: Close issue if the check failed
         if: always() && steps.check.outcome == 'failure' && hashFiles('report.md') != ''
         run: gh issue close "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --reason "not planned"
-        env:
-          GH_TOKEN: ${{ github.token }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
 
       - name: Reopen issue if it was auto-closed and now passes
-        if: always() && steps.check.outcome == 'success' && github.event.action == 'edited'
+        if: always() && steps.check.outcome == 'success' && github.event.action != 'opened'
         run: |
           closer=$(gh api "repos/$GITHUB_REPOSITORY/issues/$ISSUE_NUMBER/events" --paginate \
             --jq '[.[] | select(.event == "closed")] | last | .actor.login // empty')
           if [ "$closer" = "github-actions[bot]" ]; then
             gh issue reopen "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY"
           fi
-        env:
-          GH_TOKEN: ${{ github.token }}
-          ISSUE_NUMBER: ${{ github.event.issue.number }}
